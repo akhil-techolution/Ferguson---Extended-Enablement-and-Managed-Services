@@ -2202,9 +2202,20 @@ html.deck body{overflow-x:hidden}
 .deck #rollout .om-hint{margin-top:16px}
 .deck #rollout .ch-body{margin:0!important; min-width:0}
 .deck #rollout .omp{max-width:none; margin:0}
-/* width is capped by the column AND by the screen height, so the whole player fits one slide */
-.deck #rollout .omp .player{max-width:min(100%,calc((100svh - 360px) * 1.818))}
-.deck #rollout .omp .note{margin-top:10px; text-align:left}
+/* the card stretches to the full column as a wide rectangle; the stage keeps the
+   1200:660 shape until the screen is short, then its height caps and the artwork
+   centres inside — so on a laptop it stays rectangular instead of going narrow */
+.deck #rollout .omp .player{max-width:100%}
+/* on a laptop the chrome is trimmed and the heading takes a little more width, so the
+   artwork gets the height it needs and the card stays a wide rectangle */
+.deck #rollout .omp .player:not(.isfs) .caption{min-height:0; padding-block:clamp(10px,1.1cqw,18px)}
+@media (max-height:850px){
+  .deck #rollout > .wrap{grid-template-columns:minmax(300px,400px) minmax(0,1fr)}
+  .deck #rollout .omp .player:not(.isfs) .hud{padding-block:8px}
+  .deck #rollout .omp .player:not(.isfs) .controls{padding:6px 16px 10px}
+  .deck #rollout .omp .player:not(.isfs) .pbtn{width:38px; height:38px}
+  .deck #rollout .omp .player:not(.isfs) .fsbtn{width:36px; height:36px}
+}
 /* while the player is full screen it must not inherit the deck's scale */
 .deck #rollout:has(.player.isfs),.deck #rollout:has(.player.fsfake){zoom:1!important; min-height:0!important}
 
@@ -2743,7 +2754,6 @@ html.deck body{overflow-x:hidden}
     </div>
   </div>
         </div>
-        <p class="note">Cohort visuals are illustrative.</p>
       </div>
     </div>
   </div>
@@ -3833,6 +3843,26 @@ run(1200); /* poster frame */
         o.s.style.minHeight=(avail/z).toFixed(1)+'px';
       }
     });
+    fitPlayer(avail,z);
+  }
+
+  /* The operating-model player is sized from the real height budget so it stays a wide
+     rectangle that fills its column, instead of going narrow on a laptop. Done here in
+     px rather than in CSS, because a height cap expressed in CSS feeds back into the
+     column width and never settles. */
+  function fitPlayer(avail,z){
+    var sec=document.getElementById('rollout'), pl=document.getElementById('player'),
+        world=document.getElementById('world'), col=sec&&sec.querySelector('.ch-body');
+    if(!sec||!pl||!world||!col) return;
+    if(pl.classList.contains('isfs')||pl.classList.contains('fsfake')) return;
+    pl.style.maxWidth='100%';
+    /* everything measured on screen, so the deck's scale cancels out */
+    var pr=pl.getBoundingClientRect(), wr=world.getBoundingClientRect(), cr=col.getBoundingClientRect();
+    var chrome=pr.height-wr.height;                         /* hud + caption + controls */
+    var stage=avail-chrome-22;                              /* height left for the artwork */
+    if(stage<140||cr.width<10) return;
+    var pct=Math.min(100,(stage*1.818)/cr.width*100);
+    pl.style.maxWidth=Math.max(46,pct).toFixed(2)+'%';
   }
   function schedule(){ cancelAnimationFrame(raf); raf=requestAnimationFrame(fit); }
 
