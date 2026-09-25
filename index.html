@@ -1873,6 +1873,217 @@ body[data-opt="2"] #laneO2,body[data-opt="3"] #laneO2,body[data-opt="3"] #laneO3
 .omsel.bottom .oms-t{font-size:12.5px!important}
 @media(max-width:820px){.omsel.bottom .oms-b{font-size:13px!important; padding:9px 16px!important}}
 
+/* ---- round 40: expansion plan rebuilt as two visual cards ---- */
+#model{padding:58px 0!important}
+#model .ch-head{margin-bottom:20px!important}
+#model .lede{max-width:74ch}
+
+.xflow{display:grid; grid-template-columns:1fr auto 1fr; align-items:stretch; gap:14px}
+.xf-c{padding:14px 18px; border-radius:12px; border:1px solid var(--rule); background:var(--card)}
+.xf-c.old{background:var(--paper-2); border-style:dashed}
+.xf-c.new{border-color:color-mix(in srgb,var(--b) 40%,transparent); box-shadow:var(--shadow)}
+.xf-c .k{display:block; font-size:10px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--ink-3)}
+.xf-c.new .k{color:var(--b2)}
+.xf-c b{display:block; margin-top:3px; font-size:16px; font-weight:600; letter-spacing:-.01em}
+.xf-c p{margin-top:4px; font-size:12.5px; line-height:1.5; color:var(--ink-2)}
+.xf-ar{align-self:center; font-size:20px; color:var(--ink-3)}
+
+.xgrid{margin-top:18px; display:grid; grid-template-columns:minmax(0,0.8fr) minmax(0,1.45fr); gap:18px; align-items:stretch}
+.xcard{display:flex; flex-direction:column; padding:18px 20px 16px; border-radius:14px;
+  border:1px solid var(--rule); background:var(--card); box-shadow:var(--shadow)}
+.xc-h{display:flex; align-items:center; gap:12px; padding-bottom:12px; border-bottom:1px solid var(--rule)}
+.xc-n{flex-shrink:0; width:30px; height:30px; border-radius:9px; display:grid; place-items:center;
+  font-size:12px; font-weight:700; color:var(--a-deep); background:var(--a-soft)}
+.xcard:last-child .xc-n{color:var(--b2); background:var(--b-soft)}
+.xc-h h3{font-size:16.5px; font-weight:600; letter-spacing:-.01em; line-height:1.2}
+.xc-h span{font-size:12px; color:var(--ink-3)}
+.xc-f{margin-top:auto; padding-top:10px; font-size:11.5px; color:var(--ink-3)}
+
+#model .ramp3{margin:14px 0 auto!important; display:grid!important; grid-template-columns:1fr!important; gap:12px!important}
+#model .rstep{padding:14px 16px!important}
+#model .rs-left .w{font-size:10.5px}
+#model .rs-left .num{font-size:30px!important}
+#model .rs-left .u{font-size:11.5px}
+#model .rs-row{font-size:12.5px}
+#model .rs-v{font-size:19px}
+
+#model .cycle2{margin-top:14px!important; margin-bottom:auto; gap:14px!important}
+#model .cy{padding:16px 18px!important}
+#model .cy-h{gap:8px}
+#model .cy-w{font-size:10.5px}
+#model .cy-t{font-size:15px}
+#model .cy-p{font-size:12.5px; margin-top:6px}
+#model .cy-steps{margin-top:12px!important; gap:8px!important; display:grid!important; grid-template-columns:1fr!important}
+#model .cy-steps li{padding:10px 12px!important}
+#model .cy-steps li:nth-child(3){grid-column:auto!important}
+#model .cy-steps b{font-size:13px}
+#model .cy-steps small{font-size:11.5px; line-height:1.4; display:block; margin-top:2px}
+#model .cy-steps li span{width:21px; height:21px; font-size:11px}
+#model .cy-list{margin-top:12px!important}
+#model .cy-list li{font-size:12.5px; padding:4px 0 4px 18px}
+
+@media(max-width:1180px){#model .cycle2{grid-template-columns:1fr!important}}
+@media(max-width:1000px){
+  .xgrid{grid-template-columns:1fr}
+  .xflow{grid-template-columns:1fr; gap:8px}
+  .xf-ar{transform:rotate(90deg); justify-self:center}
+  #model .ramp3{grid-template-columns:1fr 1fr!important}
+}
+@media(max-width:620px){#model .ramp3{grid-template-columns:1fr!important}}
+
+/* ---- round 41: train-the-trainer ---- */
+.ttflow{margin:0; padding:0; list-style:none; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px}
+.ttf{position:relative; padding:22px 22px 20px; border-radius:14px; border:1px solid var(--rule);
+  background:var(--card); box-shadow:var(--shadow); border-top:3px solid var(--c)}
+.ttf.s1{--c:var(--a)} .ttf.s2{--c:var(--b)} .ttf.s3{--c:var(--amber)}
+.ttf + .ttf::before{content:"\2192"; position:absolute; left:-15px; top:50%; transform:translateY(-50%);
+  font-size:15px; color:var(--ink-3)}
+.ttf-n{display:grid; place-items:center; width:30px; height:30px; border-radius:9px;
+  font-size:13px; font-weight:700; color:#fff; background:var(--c)}
+.ttf h3{margin-top:12px; font-size:16.5px; font-weight:600; letter-spacing:-.01em; line-height:1.3}
+.ttf p{margin-top:7px; font-size:13.5px; line-height:1.55; color:var(--ink-2)}
+
+.ttopts{margin-top:22px; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px}
+.tto{padding:16px 18px; border-radius:12px; border:1px solid var(--rule); background:var(--card)}
+.tto.off{background:var(--paper-2); border-style:dashed}
+.tto.rec{border-color:color-mix(in srgb,var(--b) 45%,transparent); background:linear-gradient(180deg,var(--b-soft),var(--card) 58%)}
+.tto.exp{border-color:color-mix(in srgb,var(--a) 40%,transparent); background:linear-gradient(180deg,var(--a-soft),var(--card) 58%)}
+.tto-h{display:flex; align-items:baseline; gap:8px; flex-wrap:wrap}
+.tto-o{font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-2)}
+.tto-t{font-size:11px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-3)}
+.tto.rec .tto-t{color:var(--b2)} .tto.exp .tto-t{color:var(--a-deep)}
+.tto-s{display:block; margin-top:8px; font-size:15px; font-weight:600; letter-spacing:-.01em}
+.tto.off .tto-s{color:var(--ink-3)}
+.tto p{margin-top:5px; font-size:12.5px; line-height:1.5; color:var(--ink-2)}
+#ttt .value{margin-top:20px}
+@media(max-width:1000px){
+  .ttflow,.ttopts{grid-template-columns:1fr}
+  .ttf + .ttf::before{left:50%; top:-15px; transform:translateX(-50%) rotate(90deg)}
+}
+
+
+/* ================= round 43: operating-model player ================= */
+#rollout{--pa:#3289ff;--pad:#0056b3;--pb:#00bfa6;--pb2:#00897b;--pamber:#d9922e;
+  --psurface:#fff;--psurface2:#e9f1f9;--pink:#0f1b2d;--pinksoft:#54637a;--pinkfaint:#7d8a9c;
+  --pline:rgba(15,27,45,.10);--pline2:rgba(15,27,45,.18);--pgrad:linear-gradient(96deg,#3289ff,#00bfa6)}
+@media(min-width:1001px){header.site nav.toc{overflow:visible}}
+#rollout [hidden]{display:none!important}
+#rollout .player{container-type:inline-size; display:flex; flex-direction:column; width:100%;
+  background:var(--psurface); border:1px solid var(--pline); border-radius:18px; overflow:hidden;
+  box-shadow:0 1px 2px rgba(19,34,56,.05),0 30px 64px -36px rgba(5,42,92,.45)}
+#rollout .hud{display:flex; flex-wrap:wrap; align-items:center; gap:8px 28px; padding:13px 20px; border-bottom:1px solid var(--pline)}
+#rollout .hud .when{font-weight:500; font-size:15.5px; min-width:104px; color:var(--pinksoft)}
+#rollout .hmeter{display:flex; align-items:center; gap:12px; flex:1; min-width:220px}
+#rollout .hmeter .lab{font-size:12.5px; font-weight:500; color:var(--pinkfaint); white-space:nowrap}
+#rollout .hmeter .bar{flex:1; height:5px; border-radius:99px; background:var(--psurface2); overflow:hidden}
+#rollout .hmeter .bar i{display:block; height:100%; width:0; background:var(--pgrad); border-radius:99px; transition:width 1.1s cubic-bezier(.3,.8,.3,1)}
+#rollout .hmeter b{font-size:14.5px; font-weight:500; white-space:nowrap; font-variant-numeric:tabular-nums}
+#rollout .hstat{display:flex; align-items:baseline; gap:8px}
+#rollout .hstat span{font-size:12.5px; font-weight:500; color:var(--pinkfaint)}
+#rollout .hstat b{font-size:15px; font-weight:600; font-variant-numeric:tabular-nums}
+#rollout .bump{animation:pbump .6s}
+@keyframes pbump{40%{transform:scale(1.12)}}
+
+#rollout .caption{padding:14px clamp(16px,2.4cqw,44px); display:grid; align-content:center; gap:.5cqw;
+  background:#f3f8fe; color:var(--pink); border-bottom:1px solid var(--pline)}
+#rollout .chip{justify-self:start; font-size:clamp(12px,1.1cqw,13.5px); font-weight:500; border-radius:999px;
+  padding:.3em .9em; background:var(--psurface2); color:var(--pinksoft)}
+#rollout .chip.k1{background:rgba(217,146,46,.13); color:#a86a12}
+#rollout .chip.k2{background:rgba(50,137,255,.10); color:var(--pad)}
+#rollout .chip.k3{background:rgba(0,191,166,.12); color:#00796d}
+#rollout .caption h2{font-size:clamp(18px,2.2cqw,27px); font-weight:600; line-height:1.25; color:var(--pink); letter-spacing:-.02em}
+#rollout .caption p{color:var(--pinksoft); font-size:clamp(14.5px,1.7cqw,19px); max-width:90ch; line-height:1.45}
+#rollout .caption.swap{animation:pcapin .5s ease}
+@keyframes pcapin{from{opacity:0;transform:translateY(6px)}}
+
+#rollout .stagewrap{position:relative; aspect-ratio:1200/660; display:flex; align-items:center; justify-content:center; background:#fafcfe}
+#rollout #world{display:block; width:100%; height:100%}
+#rollout .poster{position:absolute; inset:0; display:grid; place-content:center; justify-items:center; gap:10px;
+  background:rgba(255,255,255,.74); color:var(--pink); text-align:center; padding:16px}
+#rollout .bigplay{width:clamp(64px,8vw,92px); height:clamp(64px,8vw,92px); border-radius:50%; border:0;
+  background:var(--pgrad); color:#fff; font-size:clamp(22px,3vw,34px); display:grid; place-items:center;
+  box-shadow:0 20px 40px -14px rgba(5,42,92,.5); animation:pbreathe 2.2s ease-in-out infinite; cursor:pointer}
+#rollout .bigplay span{margin-left:5px}
+@keyframes pbreathe{50%{transform:scale(1.06)}}
+#rollout .poster b{font-size:clamp(17px,2vw,24px); font-weight:600; color:var(--pink)}
+#rollout .poster small{font-size:14px; color:var(--pinksoft)}
+#rollout .endcard{position:absolute; inset:0; background:rgba(255,255,255,.96); color:var(--pink);
+  display:grid; place-content:center; justify-items:center; text-align:center; gap:12px; padding:16px; overflow:auto}
+#rollout .endcard h2{font-size:clamp(21px,3vw,34px); font-weight:600; line-height:1.15; letter-spacing:-.02em}
+#rollout .endcard h2 .g{background:var(--pgrad); -webkit-background-clip:text; background-clip:text; color:transparent}
+#rollout .endcard p{color:var(--pinksoft); max-width:58ch; font-size:clamp(14.5px,1.8vw,18px)}
+#rollout .endcard .eyebrow{color:#00796d!important}
+#rollout .endcard .price{font-size:clamp(15px,1.7vw,19px); font-weight:500}
+#rollout .endcard .price b{font-size:1.4em; background:var(--pgrad); -webkit-background-clip:text; background-clip:text; color:transparent}
+#rollout .endbtns{display:flex; gap:10px; flex-wrap:wrap; justify-content:center}
+#rollout .btn{display:inline-flex; align-items:center; gap:8px; border-radius:10px; padding:11px 22px;
+  font-weight:500; font-size:15px; border:0; text-decoration:none; cursor:pointer}
+#rollout .btn-primary{background:var(--pgrad); color:#fff}
+#rollout .btn-ghost{background:transparent; color:var(--pad); border:1px solid color-mix(in srgb,var(--pa) 45%,transparent)}
+
+#rollout .controls{display:flex; align-items:center; gap:16px; padding:11px 20px 13px; border-top:1px solid var(--pline)}
+#rollout .pbtn{width:38px; height:38px; border-radius:50%; border:0; background:var(--pad); color:#fff;
+  display:grid; place-items:center; flex:none; font-size:13px; transition:background .2s; cursor:pointer}
+#rollout .pbtn:hover{background:var(--pa)}
+#rollout .chaps{display:flex; gap:6px; flex:1; min-width:0}
+#rollout .chap{flex:var(--w) 1 0; min-width:0; background:none; border:0; padding:0; text-align:left; display:grid; gap:7px; cursor:pointer}
+#rollout .chap .tr{height:3px; border-radius:99px; background:var(--psurface2); overflow:hidden}
+#rollout .chap .tr i{display:block; height:100%; width:0; background:var(--pa)}
+#rollout .chap span{font-size:12.5px; font-weight:400; color:var(--pinkfaint); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; transition:color .2s}
+#rollout .chap.cur span{color:var(--pink); font-weight:500}
+#rollout .chap:hover span{color:var(--pad)}
+#rollout .clock{font-size:12.5px; color:var(--pinkfaint); white-space:nowrap; font-variant-numeric:tabular-nums}
+#rollout .fsbtn{width:38px; height:38px; border-radius:10px; border:1px solid var(--pline2); background:var(--psurface);
+  color:var(--pink); display:grid; place-items:center; flex:none; cursor:pointer}
+#rollout .fsbtn:hover{border-color:var(--pa); color:var(--pad)}
+#rollout .fsbtn svg{width:20px; height:20px}
+#rollout .pnote{margin-top:14px; font-size:13px; color:var(--ink-3); text-align:center}
+@media(max-width:700px){#rollout .chap span{font-size:11px} #rollout .clock{display:none}}
+
+/* fullscreen */
+#rollout .player.isfs{position:fixed; inset:0; z-index:1000; width:100vw; height:100svh; max-width:none;
+  margin:0; border:0; border-radius:0; box-shadow:none}
+#rollout .player.isfs .stagewrap{aspect-ratio:auto; flex:1; min-height:0}
+#rollout .player.isfs .caption{padding-block:12px}
+
+/* SVG world */
+#rollout #world text{font-family:var(--sans)}
+#rollout #world .mono{font-variant-numeric:tabular-nums}
+#rollout .lyr,#rollout .part{opacity:0; transition:opacity .6s ease}
+#rollout .lyr.on,#rollout .part.on{opacity:1}
+#rollout .d{fill:#fff; stroke:#c3d1e2; stroke-width:1.5; transition:fill .5s,stroke .5s,opacity .6s}
+#rollout .d.on.A{fill:#3289ff;stroke:#3289ff}
+#rollout .d.on.B1{fill:#00bfa6;stroke:#00bfa6}
+#rollout .d.on.B2{fill:#3fd1b8;stroke:#3fd1b8}
+#rollout .d.on.idle{opacity:.28}
+#rollout #grid.hiA .d.A{stroke:#3289ff;stroke-width:3.5}
+#rollout #grid.hiB .d.B1,#rollout #grid.hiB .d.B2{stroke:#00a58f;stroke-width:3.5}
+#rollout .bar-fill{transform-box:fill-box; transform-origin:0 50%; transition:transform 1s cubic-bezier(.3,.8,.3,1)}
+#rollout .ck circle{fill:#fff; stroke:#b7c6d8; stroke-width:2; transition:fill .3s,stroke .3s}
+#rollout .ck text{opacity:0; transition:opacity .3s}
+#rollout .ck.done circle{fill:#00bfa6; stroke:#00bfa6}
+#rollout .ck.done text{opacity:1}
+#rollout .wk{transition:stroke .3s,stroke-width .3s}
+#rollout .wk.cur{stroke:#0056b3!important; stroke-width:4!important}
+#rollout .op{transition:filter .7s,opacity .7s}
+#rollout .op.inact{filter:grayscale(1); opacity:.3}
+#rollout .lc{transition:stroke-width .3s}
+#rollout .lc.lcur{stroke-width:4!important}
+#rollout .cp{transition:filter .6s,opacity .6s}
+#rollout .cp.inact{filter:grayscale(1); opacity:.4}
+#rollout #stg{transition:opacity .5s}
+#rollout .hideS{opacity:0!important}
+#rollout .rq.dim{opacity:.3; transition:opacity .6s}
+#rollout .aline{stroke-dasharray:1; stroke-dashoffset:1; transition:stroke-dashoffset 1.4s ease}
+#rollout .part.on .aline{stroke-dashoffset:0}
+#rollout #coh{transition:transform .8s ease}
+#rollout .oc rect.box{transition:stroke .3s,fill .3s}
+#rollout .oc.sel rect.box{stroke:#3289ff; stroke-width:4; fill:#f3f8ff}
+#rollout .rq .col{transform-box:fill-box; transform-origin:50% 100%; transform:scaleY(0); transition:transform 1s cubic-bezier(.3,.8,.3,1)}
+#rollout .rq.on .col{transform:scaleY(1)}
+#rollout .instant *,#rollout .instant{transition:none!important; animation:none!important}
+@media (prefers-reduced-motion:reduce){#rollout .bigplay{animation:none}}
+
 /* --- accessibility --- */
 .ocard:focus-visible,.oms-b:focus-visible,.osel:focus-visible{outline:2px solid var(--a); outline-offset:3px}
 .oms-b:focus-visible{outline-color:#7fd8c7}
@@ -1908,8 +2119,14 @@ body[data-opt="2"] #laneO2,body[data-opt="3"] #laneO2,body[data-opt="3"] #laneO3
       <a href="#model" data-sec="model">Expansion plan</a>
       <a href="#rollout" data-sec="rollout">Operating model</a>
       <a href="#tracks" data-sec="tracks">Enablement tracks</a>
-      <a href="#self-service" data-sec="self-service">Self-service</a>
-      <a href="#reporting" data-sec="reporting">Reporting</a>
+      <div class="dd" id="moreDD">
+        <button type="button" class="dd-btn" aria-expanded="false" aria-haspopup="true" data-sec="self-service reporting ttt">More <span class="car" aria-hidden="true">▾</span></button>
+        <div class="dd-menu" role="menu">
+          <a href="#self-service" role="menuitem" data-sec="self-service">Self-service</a>
+          <a href="#reporting" role="menuitem" data-sec="reporting">Executive reporting</a>
+          <a href="#ttt" role="menuitem" data-sec="ttt">Train-the-trainer</a>
+        </div>
+      </div>
       <a href="#options" data-sec="options" class="opt-link">Service options</a>
     </nav>
   </div>
@@ -2043,107 +2260,367 @@ body[data-opt="2"] #laneO2,body[data-opt="3"] #laneO2,body[data-opt="3"] #laneO3
         <p class="lede">Until now, users were activated when Ferguson identified and provisioned them. Going forward, Techolution takes the lead on readiness and activation for both tracks.</p></div>
     </div>
     <div class="ch-body">
-      <div class="shift">
-        <div class="mode old"><div class="k">Until now</div><h3>Inbound, request-based</h3>
-          <p>Users were activated only after Ferguson identified them and set up their access, so the pace of the rollout depended on how quickly those requests came in.</p></div>
-        <div class="arr" aria-hidden="true">→</div>
-        <div class="mode new"><div class="k">Going forward</div><h3>Outbound, proactive</h3>
-          <p>Techolution identifies the right users, prepares their access and activates licenses once Ferguson approves. Each group then moves straight into structured training.</p></div>
+      <div class="xflow">
+        <div class="xf-c old"><span class="k">Until now</span><b>Inbound, request-based</b><p>Ferguson identified users and set up access, so the rollout moved at the pace of requests.</p></div>
+        <span class="xf-ar" aria-hidden="true">→</span>
+        <div class="xf-c new"><span class="k">Going forward</span><b>Outbound, proactive</b><p>Techolution identifies users, prepares access and activates on Ferguson’s approval.</p></div>
       </div>
 
-      <div class="sub-h"><h3>Monthly activation plan</h3><p>How many users move into enablement each month</p></div>
-      <p class="lede-in">Activation starts at 900 users a month in Q4 2026 and rises to 1,350 from Q1 2027. Track A holds at 300 a month until all 3,500 corporate users are live; the increase goes to Track B.</p>
-      <div class="ramp3">
-        <div class="rstep">
-          <div class="rs-left"><div class="w">Q4 2026</div><div class="num">900</div><div class="u">users activated per month</div></div>
-          <div class="rs-right">
-            <div class="rs-row ta"><span class="rs-k">Track A</span><span class="rs-v">300</span></div>
-            <div class="rs-row tb"><span class="rs-k">Track B</span><span class="rs-v">600</span></div>
+      <div class="xgrid">
+        <section class="xcard">
+          <div class="xc-h"><span class="xc-n">01</span><div><h3>How many users</h3><span>Monthly activation plan</span></div></div>
+          <div class="ramp3">
+            <div class="rstep">
+              <div class="rs-left"><div class="w">Q4 2026</div><div class="num">900</div><div class="u">users activated per month</div></div>
+              <div class="rs-right">
+                <div class="rs-row ta"><span class="rs-k">Track A</span><span class="rs-v">300</span></div>
+                <div class="rs-row tb"><span class="rs-k">Track B</span><span class="rs-v">600</span></div>
+              </div>
+            </div>
+            <div class="rstep">
+              <div class="rs-left"><div class="w">From Q1 2027</div><div class="num">1,350</div><div class="u">users activated per month</div></div>
+              <div class="rs-right">
+                <div class="rs-row ta"><span class="rs-k">Track A</span><span class="rs-v">300</span></div>
+                <div class="rs-row tb"><span class="rs-k">Track B</span><span class="rs-v">1,050</span></div>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="rstep">
-          <div class="rs-left"><div class="w">From Q1 2027</div><div class="num">1,350</div><div class="u">users activated per month</div></div>
-          <div class="rs-right">
-            <div class="rs-row ta"><span class="rs-k">Track A</span><span class="rs-v">300</span></div>
-            <div class="rs-row tb"><span class="rs-k">Track B</span><span class="rs-v">1,050</span></div>
-          </div>
-        </div>
-      </div>
+          <p class="xc-f">Track A holds at 300 a month until all 3,500 corporate users are live.</p>
+        </section>
 
-      <div class="sub-h"><h3>Monthly activation cycle</h3><p>How those users are activated and supported</p></div>
-      <p class="lede-in">Every cohort then follows the same four-week cycle. The plan above is <b>how many</b> users join each month; the cycle below is <b>how</b> they are activated and supported.</p>
-      <div class="cycle2">
-        <div class="cy act">
-          <div class="cy-h"><span class="cy-w">Weeks 1–3</span><span class="cy-t">Activate</span></div>
-          <p class="cy-p">The same sequence runs each week, for every track.</p>
-          <ol class="cy-steps">
-            <li><span>1</span><div><b>Select and activate the cohort</b><small>Users identified, access confirmed, licenses activated</small></div></li>
-            <li><span>2</span><div><b>Run the cohort workshop</b><small>Built around the use cases that group actually has</small></div></li>
-            <li><span>3</span><div><b>Hold cohort office hours</b><small>Questions answered while the new users are still settling in</small></div></li>
-          </ol>
-        </div>
-        <div class="cy gate">
-          <div class="cy-h"><span class="cy-w">Week 4</span><span class="cy-t">Adoption break</span></div>
-          <p class="cy-p">No new activations. Time to absorb, review and plan.</p>
-          <ul class="cy-list">
-            <li>Users apply what they learned</li>
-            <li>Usage review and executive briefing</li>
-            <li>Anyone missed is onboarded</li>
-            <li>Next cohort selected</li>
-          </ul>
-        </div>
+        <section class="xcard">
+          <div class="xc-h"><span class="xc-n">02</span><div><h3>How they are activated</h3><span>The same four-week cycle, every month</span></div></div>
+          <div class="cycle2">
+            <div class="cy act">
+              <div class="cy-h"><span class="cy-w">Weeks 1–3</span><span class="cy-t">Activate</span></div>
+              <p class="cy-p">The same sequence runs each week, for every track.</p>
+              <ol class="cy-steps">
+                <li><span>1</span><div><b>Select and activate the cohort</b><small>Users identified, access confirmed, licenses activated</small></div></li>
+                <li><span>2</span><div><b>Run the cohort workshop</b><small>Built around the use cases that group actually has</small></div></li>
+                <li><span>3</span><div><b>Hold cohort office hours</b><small>Questions answered while the new users are still settling in</small></div></li>
+              </ol>
+            </div>
+            <div class="cy gate">
+              <div class="cy-h"><span class="cy-w">Week 4</span><span class="cy-t">Adoption break</span></div>
+              <p class="cy-p">No new activations. Time to absorb, review and plan.</p>
+              <ul class="cy-list">
+                <li>Users apply what they learned</li>
+                <li>Usage review and executive briefing</li>
+                <li>Anyone missed is onboarded</li>
+                <li>Next cohort selected</li>
+              </ul>
+            </div>
+          </div>
+          <p class="xc-f">Weeks 1–3 repeat for every cohort; Week 4 runs enablement-free so users can apply what they learned.</p>
+        </section>
       </div>
     </div>
   </div>
 </section>
 
-<section class="scrolly" id="rollout" aria-label="Chapter 05, operating model rollout: program, Track A, Track B 1.1 and 1.2, and quarters">
-  <div class="stage" id="stage">
-    <div class="wrap stage-grid">
-      <div class="story">
-        <div class="stepper" aria-hidden="true"><span class="on"></span><span></span><span></span><span></span><span></span></div>
-        <div class="caps" aria-live="polite">
-          <div class="scap on"><div class="k">05 · Operating model</div></div>
-          <div class="scap"><div class="k">05 · Operating model</div></div>
-          <div class="scap"><div class="k">05 · Operating model</div></div>
-          <div class="scap quiet"><div class="k">05 · Operating model</div></div>
-          <div class="scap"><div class="k">05 · Operating model</div></div>
-        </div>
-        <div class="qpanel" id="qpanel" aria-live="polite"></div>
-      </div>
+<!-- 05 OPERATING MODEL -->
+<section class="ch alt" id="rollout" aria-labelledby="hrm">
+  <div class="wrap">
+    <div class="ch-head">
+      <div class="ch-no" aria-hidden="true"></div>
+      <div><span class="eyebrow">05 · Operating model</span><h2 id="hrm">The monthly cycle and the rollout</h2>
+        <p class="lede">Every cohort follows the same four-week cycle, and cohort by cohort every license is live by Q1 2028. Press play to watch how each option changes the cycle — and the adoption it delivers.</p></div>
+    </div>
+    <div class="ch-body">
+  <div class="player" id="player">
+    <div class="hud">
+      <span class="when" id="hWhen">Q4 2026</span>
+      <div class="hmeter"><span class="lab">Users activated</span><span class="bar"><i id="hBar"></i></span><b id="hUsers">0 / 21,000</b></div>
+      <span class="hstat"><span>Est. adoption</span><b id="hAdopt">—</b></span>
+    </div>
+    <div class="caption" id="cap">
+      <span class="chip" id="capChip">Monthly activation cycle</span>
+      <h2 id="capT">Every cohort follows the same four weeks</h2>
+      <p id="capL">Weeks 1 to 3 activate and support a new cohort every week, on every track. Week 4 is an adoption break.</p>
+    </div>
+    <div class="stagewrap">
+<svg id="world" viewBox="0 0 1200 660" role="img" aria-label="Animated walkthrough of the Ferguson Gemini Enterprise rollout">
+<defs>
+  <linearGradient id="gBar" x1="0" x2="1"><stop offset="0" stop-color="#3289ff"/><stop offset="1" stop-color="#00bfa6"/></linearGradient>
+  <pattern id="gridbg" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#dde7f2" stroke-width="1"/></pattern>
+</defs>
+<rect width="1200" height="660" fill="#eef4fb"/>
+<rect width="1200" height="660" fill="url(#gridbg)"/>
 
-      <div class="counter"><div class="k">Users activated <span class="cq" id="cq"></span></div><div class="cn num" id="cn">0</div>
-        <div class="m2"><div class="cbar"><i id="cbar"></i></div><div class="cs">of 21,000 licenses</div></div></div>
+<!-- S0 left: 3,000 -> 21,000 -->
+<g id="s0l" class="lyr" transform="translate(70 110)">
+  <text x="0" y="0" font-size="24" font-weight="700" fill="#54637a">Supported today</text>
+  <text x="0" y="96" font-size="104" font-weight="800" fill="#3289ff">3,000</text>
+  <text x="0" y="132" font-size="21" fill="#54637a">Gemini Enterprise users</text>
+  <text x="8" y="206" font-size="46" font-weight="800" fill="#9fb3c9">↓</text>
+  <text x="0" y="330" font-size="104" font-weight="800" fill="#00897b">21,000</text>
+  <text x="0" y="366" font-size="21" fill="#54637a">licenses contracted</text>
+</g>
 
-      <div class="viz" id="viz">
-        <div class="hwrap" id="hwrap">
-          <div class="hgrid" id="hgrid">
-            <svg class="wires" aria-hidden="true"><path id="wA"/><path id="wB"/><path id="wB1"/><path id="wB2"/></svg>
-            <div class="pnode" id="vroot"><div class="t">Enablement program</div><div class="n num">21,000 <small>licenses</small></div></div>
-            <div class="tl ta" id="tlA"><div class="nm">Track A</div><div class="sub">Corporate</div><div class="cap">3,500 users</div></div>
-            <div class="tl tbg" id="tlB"><div class="nm">Track B</div><div class="sub">Frontline</div><div class="cap">17,500 users</div></div>
-            <div class="tl s1" id="tlB1"><span class="nm">B 1.1</span><span class="cap">8,750</span></div>
-            <div class="tl s2" id="tlB2"><span class="nm">B 1.2</span><span class="cap">8,750</span></div>
-            <div class="lane a" id="laneA"><i></i></div>
-            <div class="lane b1" id="laneB1"><i></i></div>
-            <div class="lane b2" id="laneB2"><i></i></div>
-          </div>
-        </div>
-        <div class="omsel bottom">
-          <div class="oms-row">
-            <div class="oms-btns" role="radiogroup" aria-label="Service option">
-              <button type="button" class="oms-b" data-opt="1" role="radio" aria-checked="false" tabindex="-1">Option 1</button>
-              <button type="button" class="oms-b" data-opt="2" role="radio" aria-checked="false" tabindex="-1">Option 2</button>
-              <button type="button" class="oms-b" data-opt="3" role="radio" aria-checked="false" tabindex="-1">Option 3</button>
-            </div>
-            <span class="oms-ad" id="optAdoptModel"></span>
-            <p class="oms-t" id="optNarrModel" aria-live="polite"></p>
-          </div>
-          <div class="oms-add" id="optAddsModel"></div>
-        </div>
-        
-        <div class="hint" id="hint">Scroll to follow the rollout</div>
+<!-- license grid -->
+<g id="grid" class="lyr" transform="translate(40 60)">
+  <text x="10" y="0" font-size="23" font-weight="800" fill="#0f1b2d">21,000 Gemini Enterprise licenses</text>
+  <text x="10" y="28" font-size="16.5" fill="#54637a">Each dot is 100 users</text>
+  <g id="dots"></g>
+  <path d="M10 296 H82" stroke="#3289ff" stroke-width="4" stroke-linecap="round"/>
+  <path d="M94 296 H290" stroke="#00bfa6" stroke-width="4" stroke-linecap="round"/>
+  <path d="M302 296 H490" stroke="#3fd1b8" stroke-width="4" stroke-linecap="round"/>
+  <text x="10" y="324" font-size="17" font-weight="800" fill="#0056b3">Track A</text>
+  <text x="10" y="346" font-size="16" fill="#54637a">3,500</text>
+  <text x="94" y="324" font-size="17" font-weight="800" fill="#00796d">Track B 1.1</text>
+  <text x="94" y="346" font-size="16" fill="#54637a">8,750</text>
+  <text x="302" y="324" font-size="17" font-weight="800" fill="#00796d">Track B 1.2</text>
+  <text x="302" y="346" font-size="16" fill="#54637a">8,750</text>
+  <text x="10" y="374" font-size="16" font-weight="700" fill="#0056b3">Corporate · 17%</text>
+  <text x="176" y="374" font-size="16" font-weight="700" fill="#00796d">Frontline sales and branch · 83%</text>
+</g>
+
+<!-- left-bottom meters -->
+<g id="lbQueue" class="lyr" transform="translate(50 470)">
+  <text x="0" y="0" font-size="18" font-weight="800" fill="#0f1b2d">Support demand</text>
+  <text id="qval" x="480" y="0" text-anchor="end" font-size="17" font-weight="800" fill="#a86a12">Low</text>
+  <rect x="0" y="14" width="480" height="24" rx="12" fill="#dfe7f1"/>
+  <rect id="qfill" class="bar-fill" x="0" y="14" width="480" height="24" rx="12" fill="#d9922e" style="transform:scaleX(.08)"/>
+</g>
+<g id="lbAgent" class="lyr" transform="translate(50 548)">
+  <text x="0" y="0" font-size="18" font-weight="800" fill="#0f1b2d">Questions answered by the How-To Agent</text>
+  <text id="aval" x="480" y="0" text-anchor="end" font-size="17" font-weight="800" fill="#00796d">20%</text>
+  <rect x="0" y="14" width="480" height="24" rx="12" fill="#dfe7f1"/>
+  <rect id="afill" class="bar-fill" x="0" y="14" width="480" height="24" rx="12" fill="#00bfa6" style="transform:scaleX(.2)"/>
+</g>
+<g id="lbMonth" class="lyr" transform="translate(50 486)">
+  <text x="0" y="0" font-size="18" font-weight="800" fill="#0f1b2d">This month's cohort</text>
+  <text id="mval" x="0" y="54" font-size="46" font-weight="800" fill="#0056b3">+0 users</text>
+  <text x="0" y="90" font-size="16.5" fill="#54637a">Q4 2026 pace: 900 a month (A 300 · B 600)</text>
+</g>
+<g id="lbQtr" class="lyr" transform="translate(50 486)">
+  <text id="qtrL" x="0" y="30" font-size="44" font-weight="800" fill="#0f1b2d">Q4 ’26</text>
+  <text id="qtrU" x="0" y="72" font-size="21" font-weight="700" fill="#0056b3">3,300 users live</text>
+</g>
+<g id="lbCovers" class="lyr" transform="translate(50 470)">
+  <text x="0" y="0" font-size="18" font-weight="800" fill="#0f1b2d">Every weekly report covers</text>
+  <g id="cv0" class="part"><rect x="0" y="16" width="234" height="44" rx="22" fill="#fff" stroke="#c9d6e6"/><text x="117" y="44" text-anchor="middle" font-size="16" font-weight="700" fill="#0f1b2d">Adoption by track</text></g>
+  <g id="cv1" class="part"><rect x="246" y="16" width="234" height="44" rx="22" fill="#fff" stroke="#c9d6e6"/><text x="363" y="44" text-anchor="middle" font-size="16" font-weight="700" fill="#0f1b2d">Usage and engagement</text></g>
+  <g id="cv2" class="part"><rect x="0" y="70" width="234" height="44" rx="22" fill="#fff" stroke="#c9d6e6"/><text x="117" y="98" text-anchor="middle" font-size="16" font-weight="700" fill="#0f1b2d">Needs and support trends</text></g>
+  <g id="cv3" class="part"><rect x="246" y="70" width="234" height="44" rx="22" fill="#fff" stroke="#c9d6e6"/><text x="363" y="98" text-anchor="middle" font-size="16" font-weight="700" fill="#0f1b2d">Next actions</text></g>
+</g>
+<g id="lbAdopt" class="lyr" transform="translate(50 470)">
+  <text x="0" y="0" font-size="18" font-weight="800" fill="#0f1b2d">Estimated adoption</text>
+  <text id="adv" x="0" y="52" font-size="48" font-weight="800" fill="#00897b">~75%</text>
+  <text x="170" y="44" font-size="15.5" fill="#54637a">planning estimate,</text>
+  <text x="170" y="64" font-size="15.5" fill="#54637a">not a guaranteed outcome</text>
+  <g id="loop" class="part">
+    <rect x="0" y="84" width="480" height="84" rx="14" fill="#e0f7f3"/>
+    <text x="16" y="112" font-size="16" font-weight="800" fill="#00796d">↻ Proactive adoption loop</text>
+    <text x="16" y="142" font-size="15.5" fill="#0f1b2d">Track every license → find inactive users →</text>
+    <text x="16" y="162" font-size="15.5" fill="#0f1b2d">focused enablement sessions → adoption rises</text>
+  </g>
+</g>
+
+<!-- RIGHT PANELS -->
+<!-- today -->
+<g id="pToday" class="lyr" transform="translate(600 40)">
+  <text x="0" y="26" font-size="25" font-weight="800" fill="#0f1b2d">Where we are today</text>
+  <text x="0" y="56" font-size="17.5" fill="#54637a">Techolution already supports these users.</text>
+  <g id="t0" class="part" transform="translate(0 80)"><rect width="270" height="176" rx="16" fill="#fff" stroke="#d6e1ee"/><text x="24" y="78" font-size="56" font-weight="800" fill="#3289ff">3,000</text><text x="24" y="116" font-size="19.5" font-weight="800" fill="#0f1b2d">Licenses supported</text><text x="24" y="146" font-size="16" fill="#54637a">allocation and enablement</text></g>
+  <g id="t1" class="part" transform="translate(290 80)"><rect width="270" height="176" rx="16" fill="#fff" stroke="#d6e1ee"/><text x="24" y="78" font-size="56" font-weight="800" fill="#00897b">8</text><text x="24" y="116" font-size="19.5" font-weight="800" fill="#0f1b2d">Office hours a month</text><text x="24" y="146" font-size="16" fill="#54637a">questions, connectors, agents</text></g>
+  <g id="t2" class="part" transform="translate(0 276)"><rect width="270" height="176" rx="16" fill="#fff" stroke="#d6e1ee"/><text x="24" y="78" font-size="56" font-weight="800" fill="#00897b">2</text><text x="24" y="116" font-size="19.5" font-weight="800" fill="#0f1b2d">Workshops a month</text><text x="24" y="146" font-size="16" fill="#54637a">general and team-specific</text></g>
+  <g id="t3" class="part" transform="translate(290 276)"><rect width="270" height="176" rx="16" fill="#fff" stroke="#d6e1ee"/><text x="24" y="78" font-size="56" font-weight="800" fill="#d9922e">5</text><text x="24" y="116" font-size="19.5" font-weight="800" fill="#0f1b2d">Learning videos</text><text x="24" y="146" font-size="16" fill="#54637a">self-service, on demand</text></g>
+</g>
+
+<!-- challenge -->
+<g id="pChal" class="lyr" transform="translate(600 40)">
+  <text x="0" y="26" font-size="25" font-weight="800" fill="#0f1b2d">Key adoption challenges</text>
+  <g id="c1" class="part" transform="translate(0 48)">
+    <rect width="560" height="240" rx="16" fill="#fff" stroke="#d6e1ee"/>
+    <text x="22" y="38" font-size="17" font-weight="800" fill="#a86a12">01</text>
+    <text x="56" y="38" font-size="19" font-weight="800" fill="#0f1b2d">Every new cohort adds to the queue</text>
+    <text x="22" y="66" font-size="16.5" fill="#54637a">Questions grow with each group of users.</text>
+    <g id="tks"></g>
+    <text id="tkN" x="22" y="226" font-size="16.5" font-weight="800" fill="#a86a12">Open questions: 0</text>
+  </g>
+  <g id="c2" class="part" transform="translate(0 304)">
+    <rect width="560" height="236" rx="16" fill="#fff" stroke="#d6e1ee"/>
+    <text x="22" y="38" font-size="17" font-weight="800" fill="#a86a12">02</text>
+    <text x="56" y="38" font-size="19" font-weight="800" fill="#0f1b2d">Two groups that learn differently</text>
+    <text x="22" y="66" font-size="16.5" fill="#54637a">Different workflows, time and use cases.</text>
+    <rect x="22" y="86" width="250" height="128" rx="12" fill="#eaf2ff"/>
+    <rect x="40" y="112" width="44" height="30" rx="4" fill="#3289ff"/><rect x="56" y="142" width="12" height="8" fill="#3289ff"/><rect x="46" y="150" width="32" height="5" rx="2" fill="#3289ff"/>
+    <text x="100" y="120" font-size="19" font-weight="800" fill="#0056b3">Corporate</text>
+    <text x="100" y="148" font-size="17" fill="#0f1b2d">3,500 users</text>
+    <text x="100" y="174" font-size="15.5" fill="#54637a">17% of licenses</text>
+    <rect x="288" y="86" width="250" height="128" rx="12" fill="#e0f7f3"/>
+    <path d="M304 124 L330 108 L356 124 Z" fill="#00a58f"/><rect x="308" y="124" width="44" height="30" fill="#00a58f"/><rect x="324" y="136" width="12" height="18" fill="#e0f7f3"/>
+    <text x="368" y="120" font-size="19" font-weight="800" fill="#00796d">Frontline</text>
+    <text x="368" y="148" font-size="17" fill="#0f1b2d">17,500 users</text>
+    <text x="368" y="174" font-size="15.5" fill="#54637a">83% of licenses</text>
+  </g>
+</g>
+
+<!-- activation -->
+<g id="pAct" class="lyr" transform="translate(600 40)">
+  <text x="0" y="26" font-size="25" font-weight="800" fill="#0f1b2d">From request-based to proactive</text>
+  <g id="ln1" class="part" transform="translate(0 46)">
+    <rect width="560" height="170" rx="16" fill="#fff" stroke="#d6e1ee"/>
+    <text x="22" y="34" font-size="17.5" font-weight="800" fill="#a86a12">Until now · inbound, request-based</text>
+    <rect x="22" y="54" width="156" height="68" rx="12" fill="#fbf1e2"/><text x="100" y="84" text-anchor="middle" font-size="16" font-weight="700" fill="#0f1b2d">Ferguson</text><text x="100" y="106" text-anchor="middle" font-size="15.5" fill="#54637a">identifies users</text>
+    <rect x="202" y="54" width="156" height="68" rx="12" fill="#fbf1e2"/><text x="280" y="84" text-anchor="middle" font-size="16" font-weight="700" fill="#0f1b2d">Access</text><text x="280" y="106" text-anchor="middle" font-size="15.5" fill="#54637a">set up on request</text>
+    <rect x="382" y="54" width="156" height="68" rx="12" fill="#fbf1e2"/><text x="460" y="84" text-anchor="middle" font-size="16" font-weight="700" fill="#0f1b2d">User</text><text x="460" y="106" text-anchor="middle" font-size="15.5" fill="#54637a">activated</text>
+    <text x="22" y="152" font-size="16" fill="#54637a">Pace depends on how fast requests come in</text>
+  </g>
+  <g id="ln2" class="part" transform="translate(0 232)">
+    <rect width="560" height="170" rx="16" fill="#fff" stroke="#9ee3d6" stroke-width="2"/>
+    <text x="22" y="34" font-size="17.5" font-weight="800" fill="#00796d">Going forward · outbound, proactive</text>
+    <rect x="22" y="54" width="120" height="68" rx="12" fill="#e0f7f3"/><text x="82" y="84" text-anchor="middle" font-size="15.5" font-weight="700" fill="#0f1b2d">Techolution</text><text x="82" y="106" text-anchor="middle" font-size="15" fill="#54637a">identifies</text>
+    <rect x="154" y="54" width="120" height="68" rx="12" fill="#e0f7f3"/><text x="214" y="84" text-anchor="middle" font-size="15.5" font-weight="700" fill="#0f1b2d">Access</text><text x="214" y="106" text-anchor="middle" font-size="15" fill="#54637a">prepared</text>
+    <rect x="286" y="54" width="120" height="68" rx="12" fill="#e0f7f3"/><text x="346" y="84" text-anchor="middle" font-size="15.5" font-weight="700" fill="#0f1b2d">Ferguson</text><text x="346" y="106" text-anchor="middle" font-size="15" fill="#54637a">approves ✓</text>
+    <rect x="418" y="54" width="120" height="68" rx="12" fill="#00bfa6"/><text x="478" y="84" text-anchor="middle" font-size="15.5" font-weight="800" fill="#04241f">Activated</text><text x="478" y="106" text-anchor="middle" font-size="15" fill="#04241f">+ trained</text>
+    <text x="22" y="152" font-size="16" fill="#54637a">Each group moves straight into training</text>
+  </g>
+  <g id="aplan" class="part" transform="translate(0 418)">
+    <rect width="270" height="124" rx="14" fill="#fff" stroke="#d6e1ee"/>
+    <text x="18" y="30" font-size="16" font-weight="700" fill="#54637a">Q4 2026</text>
+    <text x="18" y="76" font-size="44" font-weight="800" fill="#0f1b2d">900</text><text x="114" y="76" font-size="16" fill="#54637a">users / month</text>
+    <text x="18" y="106" font-size="16" fill="#54637a">Track A 300 · Track B 600</text>
+    <rect x="290" width="270" height="124" rx="14" fill="#fff" stroke="#9ee3d6" stroke-width="2"/>
+    <text x="308" y="30" font-size="16" font-weight="700" fill="#00796d">From Q1 2027</text>
+    <text x="308" y="76" font-size="44" font-weight="800" fill="#0f1b2d">1,350</text><text x="436" y="76" font-size="16" fill="#54637a">/ month</text>
+    <text x="308" y="106" font-size="16" fill="#54637a">Track A 300 · Track B 1,050</text>
+  </g>
+</g>
+
+<!-- monthly cycle -->
+<g id="pCyc" class="lyr" transform="translate(600 40)">
+  <text x="0" y="26" font-size="25" font-weight="800" fill="#0f1b2d">Monthly activation cycle</text>
+  <text x="0" y="54" font-size="17.5" fill="#54637a">Every cohort follows the same four weeks</text>
+  <rect id="wk0" class="wk" x="0" y="72" width="128" height="120" rx="14" fill="#e0f7f3" stroke="#9ee3d6" stroke-width="1.5"/>
+  <rect id="wk1" class="wk" x="144" y="72" width="128" height="120" rx="14" fill="#e0f7f3" stroke="#9ee3d6" stroke-width="1.5"/>
+  <rect id="wk2" class="wk" x="288" y="72" width="128" height="120" rx="14" fill="#e0f7f3" stroke="#9ee3d6" stroke-width="1.5"/>
+  <rect id="wk3" class="wk" x="432" y="72" width="128" height="120" rx="14" fill="#fdf1e0" stroke="#f0c27a" stroke-width="1.5"/>
+  <text x="14" y="102" font-size="18" font-weight="800" fill="#0f1b2d">Week 1</text><text x="14" y="126" font-size="16" font-weight="700" fill="#00796d">Activate</text>
+  <text x="158" y="102" font-size="18" font-weight="800" fill="#0f1b2d">Week 2</text><text x="158" y="126" font-size="16" font-weight="700" fill="#00796d">Activate</text>
+  <text x="302" y="102" font-size="18" font-weight="800" fill="#0f1b2d">Week 3</text><text x="302" y="126" font-size="16" font-weight="700" fill="#00796d">Activate</text>
+  <text x="446" y="102" font-size="18" font-weight="800" fill="#0f1b2d">Week 4</text><text x="444" y="126" font-size="15" font-weight="700" fill="#a86a12">Adoption break</text>
+  <g id="coh" style="transform:translate(10px,146px)">
+    <g class="cp" id="cp0"><circle cx="10" cy="10" r="8" fill="#e8b48f"/><rect x="2" y="18" width="16" height="16" rx="6" fill="#3289ff"/></g>
+    <g class="cp" id="cp1"><circle cx="32" cy="10" r="8" fill="#c98d68"/><rect x="24" y="18" width="16" height="16" rx="6" fill="#00bfa6"/></g>
+    <g class="cp" id="cp2"><circle cx="54" cy="10" r="8" fill="#f0c9a5"/><rect x="46" y="18" width="16" height="16" rx="6" fill="#00bfa6"/></g>
+    <g class="cp" id="cp3"><circle cx="76" cy="10" r="8" fill="#8d5a3b"/><rect x="68" y="18" width="16" height="16" rx="6" fill="#3fd1b8"/></g>
+    <g class="cp" id="cp4"><circle cx="98" cy="10" r="8" fill="#e0a57c"/><rect x="90" y="18" width="16" height="16" rx="6" fill="#3289ff"/></g>
+  </g>
+  <g id="stg" transform="translate(0 208)">
+    <rect width="560" height="54" rx="12" fill="#fff" stroke="#d6e1ee"/><g class="ck" id="st0" transform="translate(30 27)"><circle r="14"/><text y="6" text-anchor="middle" font-size="16" font-weight="800" fill="#04241f">✓</text></g><text x="58" y="34" font-size="18" fill="#0f1b2d">Select and activate the cohort</text>
+    <rect y="62" width="560" height="54" rx="12" fill="#fff" stroke="#d6e1ee"/><g class="ck" id="st1" transform="translate(30 89)"><circle r="14"/><text y="6" text-anchor="middle" font-size="16" font-weight="800" fill="#04241f">✓</text></g><text x="58" y="96" font-size="18" fill="#0f1b2d">Run the cohort workshop</text>
+    <rect y="124" width="560" height="54" rx="12" fill="#fff" stroke="#d6e1ee"/><g class="ck" id="st2" transform="translate(30 151)"><circle r="14"/><text y="6" text-anchor="middle" font-size="16" font-weight="800" fill="#04241f">✓</text></g><text x="58" y="158" font-size="18" fill="#0f1b2d">Hold cohort office hours</text>
+  </g>
+  <g id="ovl" class="part" transform="translate(0 204)">
+    <g id="otb"></g>
+    <g id="olanes"></g>
+    <rect y="264" width="560" height="96" rx="14" fill="#fff" stroke="#d6e1ee"/>
+    <text x="16" y="290" font-size="16" font-weight="800" fill="#0f1b2d">Cohort of 20 after week 4</text>
+    <text id="oCount" x="544" y="290" text-anchor="end" font-size="16.5" font-weight="800" fill="#00796d"></text>
+    <g id="oIcons"></g>
+    <text id="oHelp" x="16" y="350" font-size="15" font-weight="700" fill="#54637a"></text>
+  </g>
+  <g id="brk" class="part" transform="translate(0 400)">
+    <rect width="560" height="160" rx="14" fill="#fdf1e0" stroke="#f0c27a"/>
+    <text x="20" y="32" font-size="18.5" font-weight="800" fill="#a86a12">Week 4 · no new activations</text>
+    <g class="ck" id="b0" transform="translate(32 66)"><circle r="12"/><text y="5" text-anchor="middle" font-size="14" font-weight="800" fill="#04241f">✓</text></g><text x="52" y="72" font-size="16.5" fill="#0f1b2d">Users apply learning</text>
+    <g class="ck" id="b1" transform="translate(292 66)"><circle r="12"/><text y="5" text-anchor="middle" font-size="14" font-weight="800" fill="#04241f">✓</text></g><text x="312" y="72" font-size="16.5" fill="#0f1b2d">Usage review, exec brief</text>
+    <g class="ck" id="b2" transform="translate(32 112)"><circle r="12"/><text y="5" text-anchor="middle" font-size="14" font-weight="800" fill="#04241f">✓</text></g><text x="52" y="118" font-size="16.5" fill="#0f1b2d">Anyone missed onboarded</text>
+    <g class="ck" id="b3" transform="translate(292 112)"><circle r="12"/><text y="5" text-anchor="middle" font-size="14" font-weight="800" fill="#04241f">✓</text></g><text x="312" y="118" font-size="16.5" fill="#0f1b2d">Next cohort selected</text>
+  </g>
+</g>
+
+<!-- How-To Agent -->
+<g id="pAgent" class="lyr" transform="translate(600 40)">
+  <rect width="560" height="560" rx="18" fill="#fff" stroke="#d6e1ee"/>
+  <path d="M0 60 L0 18 Q0 0 18 0 L542 0 Q560 0 560 18 L560 60 Z" fill="#0a2f5c"/>
+  <circle cx="36" cy="30" r="16" fill="#00bfa6"/><text x="36" y="37" text-anchor="middle" font-size="19" font-weight="800" fill="#04241f">?</text>
+  <text x="62" y="37" font-size="20" font-weight="800" fill="#fff">How-To Agent</text>
+  <text x="538" y="37" text-anchor="end" font-size="15.5" fill="#b7cde6">Teams channel · inbox</text>
+  <g id="m1" class="part"><rect x="150" y="82" width="388" height="74" rx="16" fill="#3289ff"/><text x="170" y="112" font-size="17" fill="#fff">How do I research supply-chain</text><text x="170" y="138" font-size="17" fill="#fff">trends for my branch?</text><text x="538" y="176" text-anchor="end" font-size="14.5" fill="#7d8a9c">Branch sales associate</text></g>
+  <g id="typ" class="part"><rect x="22" y="190" width="92" height="44" rx="16" fill="#eef3f9"/><circle cx="48" cy="212" r="6" fill="#9fb3c9"/><circle cx="68" cy="212" r="6" fill="#9fb3c9"/><circle cx="88" cy="212" r="6" fill="#9fb3c9"/></g>
+  <g id="m2" class="part">
+    <rect x="22" y="190" width="470" height="262" rx="16" fill="#eef3f9"/>
+    <text x="42" y="224" font-size="17.5" font-weight="800" fill="#0f1b2d">Try Deep Research in Gemini:</text>
+    <g id="s0" class="part"><circle cx="56" cy="258" r="14" fill="#00bfa6"/><text x="56" y="264" text-anchor="middle" font-size="15" font-weight="800" fill="#04241f">1</text><text x="80" y="264" font-size="17" fill="#0f1b2d">Open Gemini, choose Deep Research</text></g>
+    <g id="s1" class="part"><circle cx="56" cy="298" r="14" fill="#00bfa6"/><text x="56" y="304" text-anchor="middle" font-size="15" font-weight="800" fill="#04241f">2</text><text x="80" y="304" font-size="17" fill="#0f1b2d">Ask about this quarter's trends</text></g>
+    <g id="s2" class="part"><circle cx="56" cy="338" r="14" fill="#00bfa6"/><text x="56" y="344" text-anchor="middle" font-size="15" font-weight="800" fill="#04241f">3</text><text x="80" y="344" font-size="17" fill="#0f1b2d">Review the summary and sources</text></g>
+    <g id="vc" class="part"><rect x="42" y="370" width="430" height="60" rx="12" fill="#0a2f5c"/><circle cx="74" cy="400" r="16" fill="#00bfa6"/><path d="M68 391 L82 400 L68 409 Z" fill="#04241f"/><text x="102" y="397" font-size="16.5" font-weight="700" fill="#fff">Deep Research walkthrough</text><text x="102" y="419" font-size="14.5" fill="#b7cde6">Ferguson learning video</text></g>
+  </g>
+  <g id="chips" class="part">
+    <text x="22" y="486" font-size="16" fill="#54637a">Improved every week from what users actually ask</text>
+    <rect x="22" y="500" width="118" height="38" rx="19" fill="#e0f7f3"/><text x="81" y="525" text-anchor="middle" font-size="15.5" font-weight="700" fill="#00796d">FAQ</text>
+    <rect x="150" y="500" width="118" height="38" rx="19" fill="#e0f7f3"/><text x="209" y="525" text-anchor="middle" font-size="15.5" font-weight="700" fill="#00796d">Videos</text>
+    <rect x="278" y="500" width="126" height="38" rx="19" fill="#e0f7f3"/><text x="341" y="525" text-anchor="middle" font-size="15.5" font-weight="700" fill="#00796d">Quick guides</text>
+    <rect x="414" y="500" width="124" height="38" rx="19" fill="#e0f7f3"/><text x="476" y="525" text-anchor="middle" font-size="15.5" font-weight="700" fill="#00796d">Job aids</text>
+  </g>
+</g>
+
+<!-- report -->
+<g id="pRep" class="lyr" transform="translate(600 40)">
+  <rect width="560" height="560" rx="18" fill="#fff" stroke="#d6e1ee"/>
+  <text x="22" y="38" font-size="19.5" font-weight="800" fill="#0f1b2d">Executive report · Gemini adoption</text>
+  <rect x="452" y="18" width="88" height="30" rx="15" fill="#fbf1e2"/><text x="496" y="39" text-anchor="middle" font-size="15" font-weight="800" fill="#a86a12">Example</text>
+  <text x="22" y="64" font-size="15.5" fill="#54637a">A page from a current monthly report (July)</text>
+  <g id="rt0" class="part" transform="translate(22 82)"><rect width="250" height="104" rx="12" fill="#f5f8fc" stroke="#e1e8f1"/><text x="16" y="28" font-size="16" fill="#54637a">Licenses activated</text><text x="16" y="70" font-size="34" font-weight="700" fill="#0f1b2d" class="mono">456</text><text x="16" y="94" font-size="15" fill="#54637a">of 2,950</text></g>
+  <g id="rt1" class="part" transform="translate(288 82)"><rect width="250" height="104" rx="12" fill="#f5f8fc" stroke="#e1e8f1"/><text x="16" y="28" font-size="16" fill="#54637a">Monthly active users</text><text x="16" y="70" font-size="34" font-weight="700" fill="#0f1b2d" class="mono">339</text><text x="16" y="94" font-size="15" font-weight="700" fill="#00796d">▲ from 284 in June</text></g>
+  <g id="rt2" class="part" transform="translate(22 196)"><rect width="250" height="104" rx="12" fill="#f5f8fc" stroke="#e1e8f1"/><text x="16" y="28" font-size="16" fill="#54637a">Monthly usage rate</text><text x="16" y="70" font-size="34" font-weight="700" fill="#0f1b2d" class="mono">74%</text><text x="16" y="94" font-size="15" fill="#54637a">75% in June</text></g>
+  <g id="rt3" class="part" transform="translate(288 196)"><rect width="250" height="104" rx="12" fill="#f5f8fc" stroke="#e1e8f1"/><text x="16" y="28" font-size="16" fill="#54637a">Agents created</text><text x="16" y="70" font-size="34" font-weight="700" fill="#0f1b2d" class="mono">765</text><text x="16" y="94" font-size="15" fill="#54637a">Feb 16 – Jul 31</text></g>
+  <g id="rt4" class="part" transform="translate(22 310)"><rect width="516" height="96" rx="12" fill="#f5f8fc" stroke="#e1e8f1"/><text x="16" y="28" font-size="16" fill="#54637a">Total queries</text><text x="16" y="72" font-size="36" font-weight="700" fill="#0f1b2d" class="mono">102,837</text><text x="500" y="72" text-anchor="end" font-size="15" fill="#54637a">Feb 16 – Jul 31</text></g>
+  <g id="rfocus" class="part" transform="translate(22 420)"><rect width="516" height="118" rx="12" fill="#fff7e0" stroke="#f5c542"/><text x="18" y="32" font-size="17" font-weight="800" fill="#a86a12">Focus items → next actions</text><text x="18" y="64" font-size="16.5" fill="#0f1b2d">Recommended workshops:</text><text x="18" y="92" font-size="16.5" font-weight="700" fill="#0f1b2d">Gemini Notebook and custom agents</text></g>
+</g>
+
+<!-- rollout -->
+<g id="pRoll" class="lyr" transform="translate(600 40)">
+  <text x="0" y="26" font-size="25" font-weight="800" fill="#0f1b2d">Cumulative users by quarter</text>
+  <g id="rollAxes"></g>
+</g>
+
+<!-- options -->
+<g id="pOpt" class="lyr" transform="translate(600 40)">
+  <text x="0" y="26" font-size="25" font-weight="800" fill="#0f1b2d">Three service options</text>
+  <text x="0" y="54" font-size="17.5" fill="#54637a">Same enablement tracks, different depth of support</text>
+  <g class="oc" id="oc0" transform="translate(0 72)"><rect class="box" width="560" height="152" rx="16" fill="#fff" stroke="#d6e1ee" stroke-width="1.5"/>
+    <text x="22" y="36" font-size="19" font-weight="800" fill="#0f1b2d">Option 1 · Baseline</text><text x="538" y="36" text-anchor="end" font-size="19" font-weight="800" fill="#0f1b2d" class="mono">$240K/qtr</text>
+    <text x="22" y="64" font-size="16" fill="#54637a">Adoption and Managed Services</text><text x="538" y="64" text-anchor="end" font-size="17" font-weight="800" fill="#00796d">~75% adoption</text>
+    <text x="22" y="100" font-size="16.5" fill="#0f1b2d">Offshore-led core team, cost-effective</text>
+    <text x="22" y="128" font-size="16.5" fill="#0f1b2d">Adoption close to today's level</text></g>
+  <g class="oc" id="oc1" transform="translate(0 236)"><rect class="box" width="560" height="152" rx="16" fill="#fff" stroke="#d6e1ee" stroke-width="1.5"/>
+    <text x="22" y="36" font-size="19" font-weight="800" fill="#0056b3">Option 2 · Recommended</text><text x="538" y="36" text-anchor="end" font-size="19" font-weight="800" fill="#0f1b2d" class="mono">$300K/qtr</text>
+    <text x="22" y="64" font-size="16" fill="#54637a">Enhanced Onshore Adoption Support</text><text x="538" y="64" text-anchor="end" font-size="17" font-weight="800" fill="#00796d">~80% adoption</text>
+    <text x="22" y="100" font-size="16.5" fill="#0f1b2d">+ Onshore trainer, in person and US hours</text>
+    <text x="22" y="128" font-size="16.5" fill="#0f1b2d">+ Train-the-trainer, automated reports</text></g>
+  <g class="oc" id="oc2" transform="translate(0 400)"><rect class="box" width="560" height="152" rx="16" fill="#fff" stroke="#d6e1ee" stroke-width="1.5"/>
+    <text x="22" y="36" font-size="19" font-weight="800" fill="#0f1b2d">Option 3 · Express</text><text x="538" y="36" text-anchor="end" font-size="19" font-weight="800" fill="#0f1b2d" class="mono">$360K/qtr</text>
+    <text x="22" y="64" font-size="16" fill="#54637a">Accelerated Adoption and Scale</text><text x="538" y="64" text-anchor="end" font-size="17" font-weight="800" fill="#00796d">~90% adoption</text>
+    <text x="22" y="100" font-size="16.5" fill="#0f1b2d">+ Dedicated team for inactive licenses</text>
+    <text x="22" y="128" font-size="16.5" fill="#0f1b2d">+ Focused sessions for inactive users</text></g>
+</g>
+
+<g id="fx"></g>
+</svg>
+      <div class="poster" id="poster">
+        <button class="bigplay" id="bigPlay" type="button" aria-label="Play the rollout story"><span>▶</span></button>
+        <b>Watch the monthly cycle and rollout</b>
+        <small>About 50 seconds · plays on its own</small>
       </div>
+      <div class="endcard" id="endcard" hidden>
+        <p class="eyebrow" style="color:#7fd8c9">Recommended</p>
+        <h2>Option 2 · Enhanced Onshore<br><span class="g">Adoption Support</span></h2>
+        <p>Every license live by Q1 2028, with onshore support in US business hours, train-the-trainer and automated adoption reports.</p>
+        <p class="price"><b>$300K</b> per quarter · ~80% estimated adoption</p>
+        <div class="endbtns"><button class="btn btn-primary" id="replay" type="button">↺ Watch again</button><a class="btn btn-ghost" href="#options">See what each option delivers ↓</a></div>
+      </div>
+    </div>
+    <div class="controls">
+      <button class="pbtn" id="pbtn" type="button" aria-label="Play">▶</button>
+      <div class="chaps" id="chaps"></div>
+      <span class="clock" id="clock">0:00 / 0:51</span>
+      <button class="fsbtn" id="fsbtn" type="button" aria-label="Full screen" title="Full screen"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    </div>
+      <p class="pnote">Cohort visuals are illustrative.</p>
     </div>
   </div>
 </section>
@@ -2396,12 +2873,57 @@ body[data-opt="2"] #laneO2,body[data-opt="3"] #laneO2,body[data-opt="3"] #laneO3
   </div>
 </section>
 
-<!-- 09 SERVICE OPTIONS -->
+<!-- 09 TRAIN-THE-TRAINER -->
+<section class="ch" id="ttt" aria-labelledby="h85">
+  <div class="wrap">
+    <div class="ch-head">
+      <div class="ch-no" aria-hidden="true"></div>
+      <div><span class="eyebrow">09 · Train-the-trainer</span><h2 id="h85">Building Ferguson’s own Gemini trainers</h2>
+        <p class="lede">Train-the-trainer turns Ferguson employees into trainers for their own teams, so enablement keeps scaling inside Ferguson. It is part of Options 2 and 3.</p></div>
+    </div>
+    <div class="ch-body">
+      <ol class="ttflow">
+        <li class="ttf s1"><span class="ttf-n">1</span>
+          <h3>Techolution trains Ferguson trainers</h3>
+          <p>Selected Ferguson staff learn Gemini, the cohort workshop format and the How-To Agent, so they can teach it.</p></li>
+        <li class="ttf s2"><span class="ttf-n">2</span>
+          <h3>Ferguson trainers enable their teams</h3>
+          <p>They run sessions and answer questions for their own teams and branches, alongside Techolution’s support.</p></li>
+        <li class="ttf s3"><span class="ttf-n">3</span>
+          <h3>Enablement continues inside Ferguson</h3>
+          <p>Ferguson becomes more self-sufficient, relying less on outside support as new users join.</p></li>
+      </ol>
+
+      <div class="ttopts">
+        <div class="tto off">
+          <div class="tto-h"><span class="tto-o">Option 1</span><span class="tto-t">Baseline</span></div>
+          <b class="tto-s">Not included</b>
+          <p>Enablement is delivered by the Techolution core team.</p>
+        </div>
+        <div class="tto on rec">
+          <div class="tto-h"><span class="tto-o">Option 2</span><span class="tto-t">Recommended</span></div>
+          <b class="tto-s">Train-the-trainer framework</b>
+          <p>A structured, remote framework, supported by the onshore trainer in US business hours.</p>
+        </div>
+        <div class="tto on exp">
+          <div class="tto-h"><span class="tto-o">Option 3</span><span class="tto-t">Express</span></div>
+          <b class="tto-s">Framework plus in-person sessions</b>
+          <p>Everything in Option 2, plus in-person train-the-trainer sessions with Ferguson trainers.</p>
+        </div>
+      </div>
+
+      <div class="value" style="--c:var(--b)"><div class="k">Business value</div>
+        <ul><li>Lasting internal capability, so adoption keeps growing after the rollout.</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- 10 SERVICE OPTIONS -->
 <section class="ch" id="options" aria-labelledby="h9">
   <div class="wrap">
     <div class="ch-head">
       <div class="ch-no" aria-hidden="true"></div>
-      <div><span class="eyebrow">09 · Service options</span><h2 id="h9">Adoption and managed services options</h2>
+      <div><span class="eyebrow">10 · Service options</span><h2 id="h9">Adoption and managed services options</h2>
         <p class="lede">All options run the same enablement tracks. What changes is the onshore engagement, the proactive adoption management — and the adoption we plan for. We recommend Option 2.</p></div>
     </div>
 <div class="viewbar"><div class="toggle" role="group" aria-label="Options view">
@@ -2527,101 +3049,8 @@ body[data-opt="2"] #laneO2,body[data-opt="3"] #laneO2,body[data-opt="3"] #laneO3
   var seg=function(p,a,b){return clamp((p-a)/(b-a),0,1)};
   var ease=function(t){return 1-Math.pow(1-t,3)};
 
-  var fmtx=0;
-  /* scroll story: horizontal timeline, quarters on top */
-  var QS=[['Q4 2026','Foundation'],['Q1 2027','Scale'],['Q2 2027','Track A complete'],['Q3 2027','Enterprise scale'],['Q4 2027','Optimize'],['Q1 2028','All live']];
-  var A_BASE=600, A=[1500,2400,3500], B1=[900,2475,4050,5625,7200,8750];
-  var grid=document.getElementById('hgrid'), cells={a:[],b1:[],b2:[]}, qhs=[];
-  function mk(cls,row,col,html){var d=document.createElement('div'); d.className=cls; d.style.gridRow=row; d.style.gridColumn=col; d.innerHTML=html; grid.appendChild(d); return d}
-  var hls=[];
-  grid.appendChild(Object.assign(document.createElement('div'),{className:'qrule',id:'qrule'}));
-  QS.forEach(function(q,i){
-    var c=4+i;
-    hls.push(mk('colhl',1,c,''));
-    qhs.push(mk('qh',1,c,'<b>'+q[0]+'</b><span>'+q[1]+'</span>'));
-    if(i<3){var pa=i?A[i-1]:A_BASE; cells.a.push(mk('dc a',2,c,'<div class="v">'+fmt(pa)+'</div><div class="d">+'+fmt(A[i]-pa)+'</div>'));}
-    else cells.a.push(mk('dc a sup',2,c,'<div class="v">Support-led</div><div class="d">3,500 sustained</div>'));
-    [['b1',3],['b2',4]].forEach(function(t){var p=i?B1[i-1]:0;
-      cells[t[0]].push(mk('dc '+t[0],t[1],c,'<div class="v">'+fmt(p)+'</div><div class="d">+'+fmt(B1[i]-p)+'</div>'));});
-  });
-
-  var $=function(id){return document.getElementById(id)};
-  var hdr=$('hdr'), scrolly=$('rollout'), stage=$('stage'), root=$('vroot'), hwrap=$('hwrap'),
-      tlA=$('tlA'), tlB=$('tlB'), tlB1=$('tlB1'), tlB2=$('tlB2'),
-      laneA=$('laneA'), laneB1=$('laneB1'), laneB2=$('laneB2'),
-      qpanel=$('qpanel'),
-      fA=laneA.querySelector('i'), fB1=laneB1.querySelector('i'), fB2=laneB2.querySelector('i'),
-      caps=document.querySelectorAll('.scap'), dots=document.querySelectorAll('.stepper span'),
-      cn=$('cn'), cbar=$('cbar'), hint=$('hint'), prog=$('prog'),
-      W={A:$('wA'),B:$('wB'),B1:$('wB1'),B2:$('wB2')}, len={}, L={dx:0};
-  var lastStep=-1, lastQ=-1;
-  function elbow(x1,y1,x2,y2){var mx=x1+(x2-x1)/2; return 'M'+x1+','+y1+' H'+mx+' V'+y2+' H'+x2}
-  var storyEl=document.querySelector('#rollout .story');
-  var counterEl=document.querySelector('#rollout .counter');
-  function syncStory(){
-    if(!storyEl) return;
-    var de=document.documentElement;
-    if(counterEl && storyEl.parentNode && innerWidth>1040){
-      storyEl.style.maxWidth='';
-      var avail=counterEl.getBoundingClientRect().left - storyEl.getBoundingClientRect().left - 24;
-      storyEl.style.maxWidth = Math.max(320,avail)+'px';
-    } else storyEl.style.maxWidth='';
-    de.style.setProperty('--storyh',storyEl.offsetHeight+'px');
-  }
-  function layout(){
-    document.documentElement.style.setProperty('--hdr',hdr.offsetHeight+'px');
-    syncStory();
-    var t=root.style.transform; root.style.transform='none';
-    var g=grid.getBoundingClientRect(), R=function(e){var r=e.getBoundingClientRect(); return {l:r.left-g.left,r:r.right-g.left,t:r.top-g.top,b:r.bottom-g.top,cy:r.top-g.top+r.height/2,cx:r.left-g.left+r.width/2}};
-    var n=R(root), a=R(tlA), bg=R(tlB), b1=R(tlB1), b2=R(tlB2);
-    W.A.setAttribute('d',elbow(n.r,n.cy,a.l-6,a.cy));
-    W.B.setAttribute('d',elbow(n.r,n.cy,bg.l-6,bg.cy));
-    W.B1.setAttribute('d',elbow(bg.r-2,bg.cy,b1.l-6,b1.cy));
-    W.B2.setAttribute('d',elbow(bg.r-2,bg.cy,b2.l-6,b2.cy));
-    for(var k in W){len[k]=W[k].getTotalLength()||1; W[k].style.strokeDasharray=len[k]}
-    L.dx=(g.width/2)-(n.l+(n.r-n.l)/2);
-    root.style.transform=t;
-    update();
-  }
-
-  function update(){
-    var de=document.documentElement; prog.style.width=(scrollY/(de.scrollHeight-innerHeight)*100)+'%';
-    var rect=scrolly.getBoundingClientRect(), total=scrolly.offsetHeight-stage.offsetHeight;
-    var p=clamp((hdr.offsetHeight-rect.top)/total,0,1);
-    var s2=seg(p,.14,.26), s2b=seg(p,.30,.40), s3=seg(p,.40,.46), f=seg(p,.46,.90)*6;
-    var e2=ease(s2);
-    root.style.transform='translateX('+(L.dx*(1-e2))+'px) scale('+(1.18-.18*e2)+')';
-    W.A.style.strokeDashoffset=len.A*(1-seg(p,.14,.26)); W.B.style.strokeDashoffset=len.B*(1-seg(p,.14,.26));
-    W.B1.style.strokeDashoffset=len.B1*(1-seg(p,.30,.40)); W.B2.style.strokeDashoffset=len.B2*(1-seg(p,.30,.40));
-    tlA.style.opacity=tlB.style.opacity=s2;
-    tlB1.style.opacity=tlB2.style.opacity=s2b;
-    laneA.style.opacity=s3; laneB1.style.opacity=laneB2.style.opacity=s3*(s2b||0);
-    var span=function(v){return clamp(v-1,0,5)*(100/6)};
-    fB1.style.width=span(f)+'%'; fB2.style.width=span(f)+'%'; fA.style.width=span(Math.min(f,3))+'%';
-    var qr=document.getElementById('qrule'); if(qr) qr.style.opacity=s3;
-    var aVal=A_BASE*seg(p,.16,.28), bVal=0;
-    for(var i=0;i<6;i++){
-      var k=clamp(f-i,0,1), ke=ease(k), hit=f>=i+.5, cur=f>i&&f<i+1, vis=s3*(.25+.75*k);
-      qhs[i].style.opacity=s3*(.45+.55*clamp(f-i+0.7,0,1));
-      qhs[i].classList.toggle('now',cur); hls[i].classList.toggle('now',cur);
-      cells.a[i].style.opacity=vis; cells.b1[i].style.opacity=vis*(s2b||0); cells.b2[i].style.opacity=vis*(s2b||0);
-      ['a','b1','b2'].forEach(function(t){cells[t][i].classList.toggle('hit',hit)});
-      var pb=i?B1[i-1]:0, vb=pb+(B1[i]-pb)*ke;
-      cells.b1[i].firstChild.textContent=fmt(vb); cells.b2[i].firstChild.textContent=fmt(vb);
-      if(k>0) bVal=vb*2;
-      if(i<3){var pa=i?A[i-1]:A_BASE, va=pa+(A[i]-pa)*ke; cells.a[i].firstChild.textContent=fmt(va); if(k>0) aVal=va;}
-    }
-    var tot=aVal+bVal; cn.textContent=fmt(tot); cbar.style.width=Math.min(tot/21000*100,100)+'%';
-    var qi=Math.floor(clamp(f,0,5.99));
-    var cqEl=document.getElementById('cq'); if(cqEl) cqEl.textContent= f>0 ? '· '+QS[qi][0] : '';
-    var nh=document.getElementById('nextHint'); if(nh) nh.style.opacity= (p>.02 && p<.9) ? 1 : 0;
-    setNarr(f>0 ? qi : -1);
-    if(qi!==lastQ && hwrap.scrollWidth>hwrap.clientWidth+24){var t=qhs[qi];
-      hwrap.scrollTo({left:t.offsetLeft-hwrap.clientWidth/2+t.offsetWidth/2,behavior:'smooth'}); lastQ=qi;}
-    var step=p<.12?0:p<.28?1:p<.42?2:p<.93?3:4;
-    if(step!==lastStep){caps.forEach(function(c,i){c.classList.toggle('on',i===step)}); dots.forEach(function(d,i){d.classList.toggle('on',i<=step)}); lastStep=step;}
-    hint.style.opacity=p<.05?1:0;
-  }
+  var prog=document.getElementById('prog');
+  function progUpdate(){var de=document.documentElement; if(prog) prog.style.width=(scrollY/(de.scrollHeight-innerHeight)*100)+'%';}
 
   /* options view toggle: same cards, different content */
   var vbtns=document.querySelectorAll('.viewbar button'), box=document.getElementById('optsBox');
@@ -2654,7 +3083,7 @@ body[data-opt="2"] #laneO2,body[data-opt="3"] #laneO2,body[data-opt="3"] #laneO3
   /* active chapter in nav: sliding pill */
   var toc=document.getElementById('toc'), pill=document.getElementById('navPill');
   var navEls=[].slice.call(toc.querySelectorAll('[data-sec]'));
-  var secIds=['today','challenge','summary','model','rollout','tracks','self-service','reporting','options'];
+  var secIds=['today','challenge','summary','model','rollout','tracks','self-service','reporting','ttt','options'];
   var secs=secIds.map(function(id){return document.getElementById(id)});
   var curSec=null;
   function visibleEl(id){
@@ -2663,10 +3092,11 @@ body[data-opt="2"] #laneO2,body[data-opt="3"] #laneO2,body[data-opt="3"] #laneO3
     return null;
   }
   function placePill(){
-    navEls.forEach(function(e){e.classList.remove('is-active')});
+    navEls.forEach(function(e){e.classList.remove('is-active'); e.classList.remove('cur')});
     if(!curSec){pill.classList.remove('on'); return}
     var el=visibleEl(curSec); if(!el){pill.classList.remove('on'); return}
     el.classList.add('is-active');
+    var mi=toc.querySelector('.dd-menu a[data-sec="'+curSec+'"]'); if(mi) mi.classList.add('cur');
     var er=el.getBoundingClientRect(), tr=toc.getBoundingClientRect(); var lx=er.left-tr.left+toc.scrollLeft; pill.style.left=lx+'px'; pill.style.width=er.width+'px';
     pill.classList.toggle('green',curSec==='options'); pill.classList.add('on');
     if(toc.scrollWidth>toc.clientWidth){toc.scrollTo({left:lx-toc.clientWidth/2+er.width/2,behavior:'smooth'})}
@@ -2676,6 +3106,12 @@ body[data-opt="2"] #laneO2,body[data-opt="3"] #laneO2,body[data-opt="3"] #laneO3
     secs.forEach(function(sec,k){if(sec && sec.getBoundingClientRect().top<=line) found=secIds[k]});
     if(found!==curSec){curSec=found; placePill()}
   }
+  var moreDD=document.getElementById('moreDD'), moreBtn=moreDD&&moreDD.querySelector('.dd-btn');
+  if(moreDD){
+    moreBtn.addEventListener('click',function(){var o=!moreDD.classList.contains('open'); moreDD.classList.toggle('open',o); moreBtn.setAttribute('aria-expanded',o)});
+    document.addEventListener('click',function(e){if(!moreDD.contains(e.target)){moreDD.classList.remove('open'); moreBtn.setAttribute('aria-expanded','false')}});
+    moreDD.querySelectorAll('.dd-menu a').forEach(function(a){a.addEventListener('click',function(){moreDD.classList.remove('open'); moreBtn.setAttribute('aria-expanded','false')})});
+  }
   addEventListener('scroll',function(){requestAnimationFrame(trackSec)},{passive:true});
   addEventListener('resize',placePill);
   if(document.fonts&&document.fonts.ready) document.fonts.ready.then(placePill);
@@ -2684,7 +3120,7 @@ body[data-opt="2"] #laneO2,body[data-opt="3"] #laneO2,body[data-opt="3"] #laneO3
   addEventListener('beforeprint',function(){document.querySelectorAll('details').forEach(function(d){d.setAttribute('data-was',d.open?'1':'0'); d.open=true})});
   addEventListener('afterprint',function(){document.querySelectorAll('details').forEach(function(d){d.open=d.getAttribute('data-was')==='1'})});
   var ticking=false;
-  addEventListener('scroll',function(){if(!ticking){ticking=true; requestAnimationFrame(function(){update(); ticking=false})}},{passive:true});
+  addEventListener('scroll',function(){if(!ticking){ticking=true; requestAnimationFrame(function(){progUpdate(); ticking=false})}},{passive:true});
 
   /* ---------- service option selection ---------- */
   var OPTS={
@@ -2701,61 +3137,6 @@ body[data-opt="2"] #laneO2,body[data-opt="3"] #laneO2,body[data-opt="3"] #laneO3
        summary:'<b>Option 3 \u00b7 express.</b> Everything in Option 2, plus a dedicated adoption team, in-person train-the-trainer and targeted outreach to inactive and low-active users. Targeting approximately 90% estimated adoption.',
        q:'Option 3: activated users who stay inactive are identified and re-engaged.'}
   };
-  var QMAP=[
-    {q:'Q4 2026',ph:'Rollout foundation',line:'Activation begins on both tracks. Track A runs enablement-led while the first frontline cohorts start.',
-     act:'900 a month',ws:'2 a month',oh:'Daily, 1 hr',ag:'20%'},
-    {q:'Q1 2027',ph:'Scale adoption',line:'Activation steps up and Track B doubles its workshop cadence to keep pace with the larger cohorts.',
-     act:'1,350 a month',ws:'4 a month',oh:'Daily, 1 hr',ag:'30%'},
-    {q:'Q2 2027',ph:'Track A complete',line:'Track A reaches all 3,500 corporate users and moves from enablement-led to support-led delivery.',
-     act:'1,350 a month',ws:'4 a month',oh:'Daily, 1 hr',ag:'40%'},
-    {q:'Q3 2027',ph:'Enterprise scale',line:'Track B passes 11,250 users on the same weekly cohort rhythm, with self-service carrying more questions.',
-     act:'1,350 a month',ws:'4 a month',oh:'Daily, 1 hr',ag:'50%'},
-    {q:'Q4 2027',ph:'Optimize and sustain',line:'Cadence eases as adoption matures: fewer scheduled sessions, more answered through self-service.',
-     act:'1,350 a month',ws:'2 a month',oh:'8 a month',ag:'50%'},
-    {q:'Q1 2028',ph:'All live',line:'All 21,000 licenses are live and the program runs support-led across both tracks.',
-     act:'1,350 a month',ws:'2 a month',oh:'8 a month',ag:'50%'}
-  ];
-  var OPTADD={
-    1:'',
-    2:'<b>Option 2 adds</b> onshore trainer in US business hours \u00b7 train-the-trainer framework \u00b7 automated adoption reports \u00b7 faster response and issue resolution',
-    3:'<b>Option 3 adds</b> dedicated adoption team \u00b7 in-person train-the-trainer \u00b7 targeted outreach to inactive and low-active users'
-  };
-  /* Option 3 is the only option that changes the session allowance (source: comparison table) */
-  var OPTUP={3:{ws:'+ up to 2 more',oh:'+ up to 12 more a month'}};
-  function numOf(t){var m=String(t).match(/[\d,]+/); return m?parseFloat(m[0].replace(/,/g,'')):null}
-  function chip(lab,val,prev,up){
-    var cls='qc', mark='';
-    if(prev!==undefined && prev!==null && prev!==val){
-      var a=numOf(prev), b=numOf(val);
-      cls+=' chg'; mark='<i class="qc-d">'+((a!==null&&b!==null&&b<a)?'\u25be':'\u25b4')+'</i>';
-    }
-    if(up) cls+=' upl';
-    return '<div class="'+cls+'"><span class="qc-l">'+lab+'</span><b class="qc-v">'+val+
-      (up?'<em>'+up+'</em>':'')+'</b>'+mark+'</div>';
-  }
-  var lastNarrQ=-2, selectedOption=2;
-  function setNarr(qi){
-    if(!qpanel) return;
-    if(qi===lastNarrQ && qpanel.getAttribute('data-o')===String(selectedOption)) return;
-    lastNarrQ=qi; qpanel.setAttribute('data-o',selectedOption);
-    if(qi<0){
-      qpanel.innerHTML='<div class="qp-head"><span class="qp-q">Keep scrolling</span></div>'+
-        '<p class="qp-line">Follow the rollout quarter by quarter \u2014 the plan below shows what changes at each stage, and how the selected option changes it.</p>';
-      return;
-    }
-    var d=QMAP[qi], p=qi>0?QMAP[qi-1]:null, u=OPTUP[selectedOption]||{};
-    qpanel.innerHTML=
-      '<div class="qp-head"><span class="qp-q">'+d.q+'</span><span class="qp-ph">'+d.ph+'</span>'+
-        '<span class="qp-k">What changes this quarter</span></div>'+
-      '<p class="qp-line">'+d.line+'</p>'+
-      '<div class="qp-chips">'+
-        chip('Activation',d.act,p&&p.act)+
-        chip('Track B workshops',d.ws,p&&p.ws,u.ws)+
-        chip('Track B office hours',d.oh,p&&p.oh,u.oh)+
-        chip('How-To Agent target',d.ag,p&&p.ag)+
-      '</div>';
-    syncStory();
-  }
   function updateOptionCards(){
     document.querySelectorAll('.ocard[data-opt],.oms-b[data-opt]').forEach(function(b){
       var on=+b.dataset.opt===selectedOption;
@@ -2771,13 +3152,8 @@ body[data-opt="2"] #laneO2,body[data-opt="3"] #laneO2,body[data-opt="3"] #laneO3
   function updateOptionNarrative(){
     var m=document.getElementById('optNarrModel'), su=document.getElementById('optNarrSummary');
     var ad=document.getElementById('optAdoptModel');
-    if(ad) ad.innerHTML='<b>'+OPTS[selectedOption].adopt+'</b> estimated adoption';
+    if(ad) ad.textContent=OPTS[selectedOption].adopt;
     if(m) m.textContent=OPTS[selectedOption].model;
-    var add=document.getElementById('optAddsModel');
-    if(add) add.innerHTML=(OPTADD[selectedOption]||'')+
-      (selectedOption===3?'<span class="oms-loop"><b>Proactive adoption loop</b>'+
-        ['Activated users','Usage monitoring','Identify inactive and low-active users','Re-engage and retrain','Improved adoption']
-          .join(' \u2192 ')+'</span>':'');
     if(su) su.innerHTML=OPTS[selectedOption].summary;
   }
   function updateOperatingModelLayers(){
@@ -2786,9 +3162,8 @@ body[data-opt="2"] #laneO2,body[data-opt="3"] #laneO2,body[data-opt="3"] #laneO3
   function setSelectedOption(n,focus){
     n=Math.min(3,Math.max(1,+n||1));
     selectedOption=n;
-    updateOptionCards(); updateOptionNarrative(); updateOperatingModelLayers(); setNarr(lastNarrQ<0?-1:lastNarrQ);
+    updateOptionCards(); updateOptionNarrative(); updateOperatingModelLayers();
     if(focus){var t=focus.parentNode.querySelector('[data-opt="'+n+'"]'); if(t) t.focus()}
-    if(typeof layout==='function') layout();
   }
   document.querySelectorAll('.ocard[data-opt],.oms-b[data-opt],.osel[data-opt]').forEach(function(b){
     b.addEventListener('click',function(){setSelectedOption(b.dataset.opt)});
@@ -2804,9 +3179,266 @@ body[data-opt="2"] #laneO2,body[data-opt="3"] #laneO2,body[data-opt="3"] #laneO3
   });
   setSelectedOption(2);
 
-  addEventListener('resize',layout);
-  if(document.fonts&&document.fonts.ready) document.fonts.ready.then(layout);
-  layout();
+  progUpdate();
+})();
+</script>
+<script>
+(function(){
+const $=s=>document.querySelector(s);
+const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const NS='http://www.w3.org/2000/svg';
+const W=$('#world'), player=$('#player');
+const TPL=W.innerHTML;
+const END=51000;
+const CH=[[0,'Monthly cycle'],[14500,'Option 1'],[20500,'Option 2'],[26500,'Option 3'],[33000,'Rollout'],[46000,'Adoption by option']];
+let t=0,idx=0,playing=false,last=0,seeking=false,ended=false,users=0;
+
+$('#chaps').innerHTML=CH.map((c,i)=>{const d=(CH[i+1]?CH[i+1][0]:END)-c[0];return `<button type="button" class="chap" data-t="${c[0]}" style="--w:${d}"><span class="tr"><i></i></span><span>${c[1]}</span></button>`}).join('');
+const chapEls=[...document.querySelectorAll('.chap')];
+const q=id=>W.querySelector('#'+id);
+const on=(id,v=true)=>q(id).classList.toggle('on',v);
+const cls=(id,c,v=true)=>q(id).classList.toggle(c,v);
+
+/* ---------- builders run on every reset ---------- */
+const TR=i=>i<35?'A':(i<123?'B1':'B2');
+const TIDX={A:[],B1:[],B2:[]};
+function build(){
+  TIDX.A=[];TIDX.B1=[];TIDX.B2=[];
+  const g=q('dots');let h='';
+  for(let i=0;i<210;i++){const c=Math.floor(i/10),r=i%10,tr=TR(i);h+=`<circle class="d ${tr}" data-i="${i}" cx="${10+c*24}" cy="${58+r*24}" r="8.5"/>`;}
+  g.innerHTML=h;
+  [...g.children].forEach(d=>TIDX[d.classList[1]].push(d));
+  // tickets
+  let tk='';for(let k=0;k<14;k++){const x=22+(k%7)*74,y=86+Math.floor(k/7)*56;tk+=`<g class="part" id="tk${k}"><rect x="${x}" y="${y}" width="64" height="46" rx="9" fill="#fff4e5" stroke="#f0c27a" stroke-width="1.5"/><text x="${x+32}" y="${y+31}" text-anchor="middle" font-size="22" font-weight="800" fill="#d9922e">?</text></g>`;}
+  q('tks').innerHTML=tk;
+  // rollout chart
+  const Q=['Q4 ’26','Q1 ’27','Q2 ’27','Q3 ’27','Q4 ’27','Q1 ’28'];
+  const A=[1500,2400,3500,3500,3500,3500],B1=[900,2475,4050,5625,7200,8750],B2=[900,2475,4050,5625,7200,8750];
+  const X0=72,Y0=520,H=440,y=v=>v/21000*H;
+  let r='';
+  [0,7000,14000,21000].forEach(v=>{r+=`<line x1="${X0}" x2="556" y1="${Y0-y(v)}" y2="${Y0-y(v)}" stroke="#dbe4ef"/><text x="${X0-8}" y="${Y0-y(v)+5}" text-anchor="end" font-size="15" fill="#7d8a9c" class="mono">${v?(v/1000)+'K':'0'}</text>`;});
+  Q.forEach((lab,i)=>{
+    const cx=X0+40+i*80,w=54,x=cx-w/2;
+    const ha=y(A[i]),h1=y(B1[i]),h2=y(B2[i]),tot=A[i]+B1[i]+B2[i];
+    r+=`<g class="rq" id="rq${i}"><g class="col"><rect x="${x}" y="${Y0-ha}" width="${w}" height="${ha}" fill="#3289ff"/><rect x="${x}" y="${Y0-ha-h1}" width="${w}" height="${h1}" fill="#00bfa6"/><rect x="${x}" y="${Y0-ha-h1-h2}" width="${w}" height="${h2}" fill="#3fd1b8"/></g><text x="${cx}" y="${Y0-ha-h1-h2-10}" text-anchor="middle" font-size="16" font-weight="800" fill="#0f1b2d" class="mono">${tot.toLocaleString('en-US')}</text></g>`;
+    r+=`<text x="${cx}" y="${Y0+26}" text-anchor="middle" font-size="15.5" fill="#54637a">${lab}</text>`;
+  });
+  r+=`<rect x="${X0}" y="${Y0+40}" width="16" height="16" rx="3" fill="#3289ff"/><text x="${X0+22}" y="${Y0+54}" font-size="15.5" fill="#0f1b2d">Track A</text><rect x="${X0+110}" y="${Y0+40}" width="16" height="16" rx="3" fill="#00bfa6"/><text x="${X0+132}" y="${Y0+54}" font-size="15.5" fill="#0f1b2d">Track B 1.1</text><rect x="${X0+250}" y="${Y0+40}" width="16" height="16" rx="3" fill="#3fd1b8"/><text x="${X0+272}" y="${Y0+54}" font-size="15.5" fill="#0f1b2d">Track B 1.2</text>`;
+  const P=[.75,.8,.9],COL=['#6b7fa8','#00a58f','#d9922e'],LAB=['Option 1','Option 2','Option 3'];
+  P.forEach((pc,k)=>{
+    const pts=Q.map((_,i)=>{const cx=X0+40+i*80,tot=A[i]+B1[i]+B2[i];return [cx,Y0-y(tot*pc)];});
+    const d='M'+pts.map(p=>p[0].toFixed(1)+' '+p[1].toFixed(1)).join(' L');
+    const val=Math.round(21000*pc);
+    const ly=[206,162,112][k];
+    r+=`<g class="part" id="al${k}"><path class="aline" pathLength="1" d="${d}" fill="none" stroke="${COL[k]}" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>${pts.map(p=>`<circle cx="${p[0]}" cy="${p[1]}" r="5" fill="${COL[k]}"/>`).join('')}<rect x="${X0+8}" y="${ly-22}" width="236" height="32" rx="16" fill="#fff" stroke="${COL[k]}" stroke-width="2"/><text x="${X0+22}" y="${ly}" font-size="16" font-weight="800" fill="${COL[k]}">${LAB[k]} · ${val.toLocaleString('en-US')} active</text></g>`;
+  });
+  q('rollAxes').innerHTML=r;
+}
+function dots(a,b1,b2){
+  [['A',a],['B1',b1],['B2',b2]].forEach(([k,n])=>TIDX[k].forEach((d,i)=>d.classList.toggle('on',i<n)));
+}
+function idle(pct){ // share of lit dots that are active
+  const lit=[...q('dots').children].filter(d=>d.classList.contains('on'));
+  lit.forEach(d=>{const i=+d.dataset.i;const r=((i*37)%100)/100;d.classList.toggle('idle',r>=pct);});
+}
+const LANES=[
+ {n:'Core team · offshore-led',c:'#3289ff',d:'#0056b3',bg:'#eaf2ff',w:['Workshop +','office hours'],b:['Usage review,','exec briefing'],from:0},
+ {n:'Onshore trainer · in person, US hours',c:'#00a58f',d:'#00796d',bg:'#e0f7f3',w:['In person,','US hours'],b:['Train-the-','trainer'],from:1},
+ {n:'Dedicated adoption team',c:'#d9922e',d:'#a86a12',bg:'#fdf1e0',w:['Tracks every','license'],b:['Sessions for','inactive users'],from:2}
+];
+const OPN=[['Option 1 · Baseline','#6b7fa8'],['Option 2 · Onshore','#00a58f'],['Option 3 · Dedicated','#d9922e']];
+const OACT=[15,16,18],OPCT=[75,80,90];
+const OHELP=['Inactive users stay inactive, as today','The onshore trainer brings 1 more user back','The adoption team brings 3 more users back'];
+function oIcons(n){
+  let h='';for(let j=0;j<20;j++){const x=16+j*27;h+=`<g class="op${j<n?'':' inact'}"><circle cx="${x+8}" cy="306" r="6" fill="${j%3===1?'#c98d68':(j%3===2?'#f0c9a5':'#e8b48f')}"/><rect x="${x+1}" y="314" width="14" height="15" rx="6" fill="${j<7?'#3289ff':'#00bfa6'}"/></g>`;}
+  q('oIcons').innerHTML=h;
+}
+function optPass(i){
+  q('otb').innerHTML=OPN.map((x,k)=>`<rect x="${k*190}" y="0" width="180" height="40" rx="20" fill="${k===i?x[1]:'#fff'}" stroke="${x[1]}" stroke-width="2"/><text x="${k*190+90}" y="26" text-anchor="middle" font-size="15.5" font-weight="800" fill="${k===i?'#fff':x[1]}">${x[0]}</text>`).join('');
+  let h='';
+  LANES.forEach((L,li)=>{
+    const y0=52+li*70,act=i>=L.from;
+    h+=`<text x="0" y="${y0+14}" font-size="15" font-weight="800" fill="${act?L.d:'#9fb0c3'}">${L.n}${act?'':' · not in this option'}</text>`;
+    for(let k=0;k<4;k++){
+      const x=k*144,y=y0+22,t=k<3?L.w:L.b;
+      if(act){h+=`<rect class="lc on" data-k="${k}" x="${x}" y="${y}" width="128" height="44" rx="10" fill="${L.bg}" stroke="${L.c}" stroke-width="1.5"/><text x="${x+64}" y="${y+19}" text-anchor="middle" font-size="14.5" font-weight="700" fill="#0f1b2d">${t[0]}</text><text x="${x+64}" y="${y+37}" text-anchor="middle" font-size="14.5" font-weight="700" fill="#0f1b2d">${t[1]}</text>`;}
+      else{h+=`<rect x="${x}" y="${y}" width="128" height="44" rx="10" fill="none" stroke="#cbd6e3" stroke-width="1.5" stroke-dasharray="5 4"/><text x="${x+64}" y="${y+28}" text-anchor="middle" font-size="16" fill="#b3c1d1">—</text>`;}
+    }
+  });
+  q('olanes').innerHTML=h;
+  oIcons(OACT[0]);
+  q('oCount').textContent=`${OACT[0]} of 20 active`;
+  q('oHelp').textContent='';
+  ['cp1','cp3'].forEach(c=>cls(c,'inact',false));
+  passWeek(0);
+}
+function passWeek(k){['wk0','wk1','wk2','wk3'].forEach((w,j)=>cls(w,'cur',j===k));q('coh').style.transform=`translate(${10+k*144}px,146px)`;W.querySelectorAll('#olanes .lc').forEach(r=>r.classList.toggle('lcur',+r.dataset.k===k));}
+function recover(i){
+  const icons=W.querySelectorAll('#oIcons .op');icons.forEach((g,j)=>g.classList.toggle('inact',j>=OACT[i]));
+  q('oCount').textContent=`${OACT[i]} of 20 active · ~${OPCT[i]}%`;
+  q('oHelp').textContent=OHELP[i];q('oHelp').setAttribute('fill',['#54637a','#00796d','#a86a12'][i]);
+}
+function bar(id,v){q(id).style.transform=`scaleX(${v})`;}
+
+/* ---------- HUD & caption ---------- */
+function fmtN(n){return n.toLocaleString('en-US');}
+function hud(o){
+  if(o.when!=null){$('#hWhen').textContent=o.when;}
+  if(o.users!=null){const e=$('#hUsers'),from=users,to=o.users;users=to;$('#hBar').style.width=(to/21000*100)+'%';
+    if(seeking||RM){e.textContent=fmtN(to)+' / 21,000';}else{const t0=performance.now();(function f(tt){const p=Math.min(1,(tt-t0)/800);e.textContent=fmtN(Math.round(from+(to-from)*p))+' / 21,000';if(p<1)requestAnimationFrame(f);})(t0);}}
+  if(o.adopt!=null){const e=$('#hAdopt');if(e.textContent!==o.adopt){e.textContent=o.adopt;bump(e);}}
+}
+function bump(e){if(seeking)return;e.classList.remove('bump');void e.offsetWidth;e.classList.add('bump');}
+function cap(k,chip,title,line){
+  const c=$('#cap');$('#capChip').className='chip'+(k?' k'+k:'');$('#capChip').textContent=chip;$('#capT').textContent=title;$('#capL').textContent=line;
+  if(!seeking){c.classList.remove('swap');void c.offsetWidth;c.classList.add('swap');}
+}
+
+/* ---------- effects ---------- */
+function token(from,to,dur,col){
+  if(RM)return;
+  const g=document.createElementNS(NS,'circle');g.setAttribute('r','11');g.setAttribute('fill',col);g.setAttribute('stroke','#fff');g.setAttribute('stroke-width','3');
+  q('fx').appendChild(g);
+  const a=g.animate([{transform:`translate(${from[0]}px,${from[1]}px)`,opacity:0},{opacity:1,offset:.1},{opacity:1,offset:.9},{transform:`translate(${to[0]}px,${to[1]}px)`,opacity:0}],{duration:dur,easing:'linear'});
+  a.onfinish=()=>g.remove();
+}
+function tkFly(k){
+  if(RM)return;
+  const x=600+22+(k%7)*74+32,y=40+48+86+Math.floor(k/7)*56+23;
+  const g=document.createElementNS(NS,'g');g.innerHTML=`<circle r="12" fill="#d9922e"/><text y="6" text-anchor="middle" font-size="16" font-weight="800" fill="#fff">?</text>`;
+  q('fx').appendChild(g);
+  const sx=160+Math.random()*300,sy=140+Math.random()*180;
+  const a=g.animate([{transform:`translate(${sx}px,${sy}px) scale(.6)`,opacity:0},{transform:`translate(${(sx+x)/2}px,${Math.min(sy,y)-60}px)`,opacity:1,offset:.5},{transform:`translate(${x}px,${y}px) scale(.8)`,opacity:.2}],{duration:800,easing:'ease-in-out'});
+  a.onfinish=()=>g.remove();
+}
+
+/* ---------- cue list ---------- */
+const L1=[[700,178],[1060,178]], L2=[[682,364],[1078,364]];
+const C=[
+ [0,()=>{cap(0,'Where we are today','From 3,000 users today to 21,000','Techolution already runs licensing, live support, workshops and self-service learning for Ferguson\'s Gemini Enterprise users.');hud({when:'Today',users:0,agent:'—',adopt:'—'});on('s0l');on('pToday');}],
+ [900,()=>on('t0')],[1500,()=>on('t1')],[2100,()=>on('t2')],[2700,()=>on('t3')],
+
+ [8000,()=>{cap(1,'The challenge','Onboarding 21,000 team members','Ferguson has contracted 21,000 Gemini Enterprise licenses: 3,500 corporate users on Track A and 17,500 frontline sales and branch users on Track B.');on('s0l',false);on('pToday',false);on('grid');on('pChal');}],
+ [9200,()=>cls('grid','hiA')],[10300,()=>{cls('grid','hiA',false);cls('grid','hiB');}],
+ [11200,()=>{cls('grid','hiB',false);on('c1');on('lbQueue');cap(1,'The challenge','Support demand grows with every cohort','Recurring questions and day-to-day usage problems grow with each group of users, so support demand rises as adoption scales.');}],
+ ...Array.from({length:14},(_,k)=>[[11800+k*220,()=>tkFly(k),1],[12600+k*220,()=>{on('tk'+k);q('tkN').textContent='Open questions: '+(k+1)*12;bar('qfill',.08+(k+1)*.06);q('qval').textContent=k<5?'Rising':(k<10?'High':'Very high');}]]).flat(),
+ [15600,()=>{on('c2');cap(1,'The challenge','Corporate and frontline teams learn differently','Their workflows, time and use cases are not the same, so a single enablement model would leave 17,500 frontline users behind.');}],
+
+ [19000,()=>{cap(2,'Expansion plan','From request-based to proactive activation','Until now, users were activated only after Ferguson identified them and set up access. Going forward, Techolution takes the lead on readiness and activation.');on('pChal',false);on('lbQueue',false);on('pAct');on('ln1');}],
+ [19800,()=>token(L1[0],L1[1],3400,'#d9922e'),1],
+ [22800,()=>on('ln2')],
+ ...[23300,23800,24300,24800,25300,25800].map(tt=>[tt,()=>token(L2[0],L2[1],1500,'#00bfa6'),1]),
+ [26600,()=>{on('aplan');cap(2,'Monthly activation plan','900 users a month, then 1,350','Activation starts at 900 users a month in Q4 2026 and rises to 1,350 from Q1 2027. Track A holds at 300 a month; the increase goes to Track B.');}],
+
+ [31000,()=>{cap(3,'Monthly activation cycle','Every cohort follows the same four weeks','Weeks 1 to 3 activate and support a new cohort every week, on every track. Week 4 is an adoption break.');on('pAct',false);on('pCyc');on('lbMonth');hud({when:'Q4 2026 · Month 1'});}],
+ [32000,()=>{cls('wk0','cur');}],
+ [32700,()=>{cls('st0','done');dots(1,1,1);q('mval').textContent='+300 users';hud({users:300});}],[33400,()=>cls('st1','done')],[34100,()=>cls('st2','done')],
+ [35100,()=>{cls('wk0','cur',false);cls('wk1','cur');q('coh').style.transform='translate(154px,146px)';['st0','st1','st2'].forEach(s=>cls(s,'done',false));}],
+ [35800,()=>{cls('st0','done');dots(2,2,2);q('mval').textContent='+600 users';hud({users:600});}],[36500,()=>cls('st1','done')],[37200,()=>cls('st2','done')],
+ [38200,()=>{cls('wk1','cur',false);cls('wk2','cur');q('coh').style.transform='translate(298px,146px)';['st0','st1','st2'].forEach(s=>cls(s,'done',false));}],
+ [38900,()=>{cls('st0','done');dots(3,3,3);q('mval').textContent='+900 users';hud({users:900});}],[39600,()=>cls('st1','done')],[40300,()=>cls('st2','done')],
+ [41400,()=>{cls('wk2','cur',false);cls('wk3','cur');q('coh').style.transform='translate(442px,146px)';on('brk');cap(3,'Monthly activation cycle','Week 4: the adoption break','No new activations. Users apply what they learned, leadership gets a usage review and briefing, anyone missed is onboarded, and the next cohort is selected.');}],
+ [42200,()=>cls('b0','done')],[42900,()=>cls('b1','done')],[43600,()=>cls('b2','done')],[44300,()=>cls('b3','done')],
+ [45500,()=>{cap(3,'Option 1 · Baseline','Option 1 keeps adoption close to today','The offshore-led core team runs every week of the cycle. About 15 in 20 users stay active, close to today\'s rate.');on('brk',false);cls('stg','hideS');on('ovl');optPass(0);hud({adopt:'~75%'});}],
+ [46700,()=>passWeek(1)],[47700,()=>passWeek(2)],[48700,()=>passWeek(3)],[49400,()=>recover(0)],
+ [51500,()=>{cap(3,'Option 2 · Enhanced onshore','Option 2 adds onshore and in-person presence','An onshore trainer works alongside the cohort every week, in person and in US hours, and trains Ferguson\'s own trainers. About 16 in 20 stay active.');on('brk',false);cls('stg','hideS');on('ovl');optPass(1);hud({adopt:'~80%'});}],
+ [52700,()=>passWeek(1)],[53700,()=>passWeek(2)],[54700,()=>passWeek(3)],[55400,()=>recover(1)],
+ [57500,()=>{cap(3,'Option 3 · Accelerated','Option 3 adds a dedicated adoption team','The team tracks every license and runs sessions for inactive users, with in-person train-the-trainer. About 18 in 20 users become active.');on('brk',false);cls('stg','hideS');on('ovl');optPass(2);hud({adopt:'~90%'});}],
+ [58700,()=>passWeek(1)],[59700,()=>passWeek(2)],[60700,()=>passWeek(3)],[61400,()=>recover(2)],
+
+ [64000,()=>{on('ovl',false);cls('stg','hideS',false);hud({adopt:'—'});cap(4,'Self-service and automation','Answers without waiting for a session','The How-To Agent and FAQ give step-by-step answers to common Gemini questions, improved every week from what users actually ask.');on('pCyc',false);on('lbMonth',false);on('pAgent');on('lbQueue');on('lbAgent');bar('qfill',.9);q('qval').textContent='High';bar('afill',.2);q('aval').textContent='20%';hud({agent:'20%'});}],
+ [65000,()=>on('m1')],[66000,()=>on('typ')],[67000,()=>{on('typ',false);on('m2');}],
+ [67600,()=>on('s0')],[68300,()=>on('s1')],[69000,()=>on('s2')],[69800,()=>on('vc')],
+ [70800,()=>{cap(4,'Self-service and automation','More questions answered by the agent every quarter','How-To Agent use is planned to grow from 20% in Q4 2026 to 50% from Q3 2027, so the support queue eases as the rollout scales.');bar('afill',.3);q('aval').textContent='30% · Q1 ’27';bar('qfill',.72);hud({agent:'30%',when:'Q1 2027'});}],
+ [71900,()=>{bar('afill',.4);q('aval').textContent='40% · Q2 ’27';bar('qfill',.55);q('qval').textContent='Easing';hud({agent:'40%',when:'Q2 2027'});}],
+ [73000,()=>{bar('afill',.5);q('aval').textContent='50% · Q3 ’27';bar('qfill',.4);q('qval').textContent='Manageable';hud({agent:'50%',when:'Q3 2027'});on('chips');}],
+
+ [75000,()=>{cap(5,'Executive reporting','A clear weekly view for Ferguson leadership','Adoption, usage and engagement insights to spot trends, close gaps early and guide enablement decisions.');on('pAgent',false);on('lbQueue',false);on('lbAgent',false);on('pRep');on('lbCovers');}],
+ [75800,()=>on('cv0')],[76300,()=>on('cv1')],[76800,()=>on('cv2')],[77300,()=>on('cv3')],
+ [76000,()=>on('rt0')],[76600,()=>on('rt1')],[77200,()=>on('rt2')],[77800,()=>on('rt3')],[78400,()=>on('rt4')],
+ [79600,()=>{on('rfocus');cap(5,'Executive reporting','Every report ends with next actions','Recurring questions and usage trends turn into adjustments to training, office hours and learning assets.');}],
+
+ [84000,()=>{cap(6,'Rollout','Every license live by Q1 2028','Activation runs quarter by quarter across Track A and the two parallel frontline streams, B 1.1 and B 1.2.');on('pRep',false);on('lbCovers',false);on('pRoll');on('lbQtr');}],
+ ...[[1500,900,900,15,9,9,'Q4 ’26','Q4 2026'],[2400,2475,2475,24,25,25,'Q1 ’27','Q1 2027'],[3500,4050,4050,35,41,41,'Q2 ’27','Q2 2027'],[3500,5625,5625,35,56,56,'Q3 ’27','Q3 2027'],[3500,7200,7200,35,72,72,'Q4 ’27','Q4 2027'],[3500,8750,8750,35,88,87,'Q1 ’28','Q1 2028']].map((r,i)=>[85000+i*1900,()=>{on('rq'+i);dots(r[3],r[4],r[5]);const tot=r[0]+r[1]+r[2];q('qtrL').textContent=r[6];q('qtrU').textContent=fmtN(tot)+' users live';hud({users:tot,when:r[7]});}]),
+ [96000,()=>{q('qtrU').textContent='21,000 licenses live';}],
+ [97000,()=>{for(let i=0;i<6;i++)cls('rq'+i,'dim');on('al0');hud({adopt:'~75%'});cap(6,'Rollout · active users by option','Same licenses, different adoption','Every option activates all 21,000 licenses. The difference is how many people actively use them: Option 1 stays close to today\'s rate.');q('qtrU').textContent='Option 1 · 15,750 active';}],
+ [99500,()=>{on('al1');hud({adopt:'~80%'});cap(6,'Rollout · active users by option','Option 2 lifts active users to about 16,800','Onshore and in-person support helps more people keep using Gemini after their cohort ends.');q('qtrU').textContent='Option 2 · 16,800 active';}],
+ [101200,()=>{on('al2');hud({adopt:'~90%'});cap(6,'Rollout · active users by option','Option 3 lifts active users to about 18,900','The dedicated adoption team brings inactive licenses back into use, for maximum license utilization.');q('qtrU').textContent='Option 3 · 18,900 active';}],
+
+ [102000,()=>{cap(7,'Service options','Choose how deep the support goes','All options run the same enablement tracks. What changes is the onshore engagement, the proactive adoption management, and the adoption we plan for.');on('pRoll',false);on('lbQtr',false);on('pOpt');on('lbAdopt');}],
+ [103000,()=>{cls('oc0','sel');idle(.75);q('adv').textContent='~75%';hud({adopt:'~75%'});}],
+ [106500,()=>{cls('oc0','sel',false);cls('oc1','sel');idle(.8);q('adv').textContent='~80%';hud({adopt:'~80%'});cap(7,'Service options','Option 2 adds onshore and in-person presence','An onshore trainer alongside every cohort, in person and in US business hours, plus train-the-trainer and automated adoption reports.');}],
+ [110000,()=>{cls('oc1','sel',false);cls('oc2','sel');idle(.9);q('adv').textContent='~90%';hud({adopt:'~90%'});on('loop');cap(7,'Service options','Option 3 adds a dedicated adoption team','The team focuses on inactive and low-active licenses, runs focused enablement sessions for them, and works to raise overall adoption.');}],
+ [113800,()=>{cls('oc2','sel',false);cls('oc1','sel');idle(.8);q('adv').textContent='~80%';hud({adopt:'~80%'});on('loop',false);cap(7,'Our recommendation','Option 2: the best value','Onshore support in US business hours, train-the-trainer and automated adoption reports, at $300K a quarter and ~80% estimated adoption.');}],
+];
+/* keep only the monthly cycle (incl. option passes) and the rollout */
+const KEEP=[[31000,64000,-31000],[84000,102000,-51000]];
+const C2=C.filter(c=>KEEP.some(k=>c[0]>=k[0]&&c[0]<k[1])).map(c=>{const k=KEEP.find(k=>c[0]>=k[0]&&c[0]<k[1]);return [c[0]+k[2],c[1],c[2]];});
+C2.push([0,()=>{on('grid');hud({when:'Q4 2026',users:0,agent:'—',adopt:'—'});}]);
+C2.push([33000,()=>{on('pCyc',false);on('lbMonth',false);on('ovl',false);cls('stg','hideS',false);hud({adopt:'—'});}]);
+C.length=0;C.push(...C2);
+C.sort((a,b)=>a[0]-b[0]);
+
+/* ---------- engine ---------- */
+function reset(){W.innerHTML=TPL;build();idx=0;ended=false;users=0;$('#endcard').hidden=true;}
+function run(target){
+  seeking=true;player.classList.add('instant');reset();
+  hud({when:'Today',users:0,agent:'—',adopt:'—'});
+  while(idx<C.length&&C[idx][0]<target){if(!C[idx][2])C[idx][1]();idx++;}
+  t=target;player.getBoundingClientRect();
+  requestAnimationFrame(()=>{player.classList.remove('instant');seeking=false;});
+  ui();
+}
+function fmt(ms){const s=Math.floor(ms/1000);return Math.floor(s/60)+':'+String(s%60).padStart(2,'0');}
+function ui(){
+  chapEls.forEach((c,i)=>{const a=CH[i][0],b=CH[i+1]?CH[i+1][0]:END;const p=Math.max(0,Math.min(1,(t-a)/(b-a)));c.querySelector('i').style.width=(p*100)+'%';c.classList.toggle('cur',t>=a&&t<b);});
+  $('#clock').textContent=fmt(Math.min(t,END))+' / '+fmt(END);
+  const pb=$('#pbtn');pb.textContent=playing?'❚❚':(ended?'↺':'▶');pb.setAttribute('aria-label',playing?'Pause':(ended?'Replay':'Play'));
+}
+function tick(now){
+  if(!playing)return;
+  t+=Math.min(100,now-last);last=now;
+  while(idx<C.length&&C[idx][0]<=t){C[idx][1]();idx++;}
+  if(t>=END){playing=false;ended=true;$('#endcard').hidden=false;ui();return;}
+  ui();requestAnimationFrame(tick);
+}
+function play(){
+  if(ended)run(0);
+  if(!isFs()){const r=player.getBoundingClientRect();if(r.top<0||r.bottom>innerHeight)player.scrollIntoView({behavior:RM?'auto':'smooth',block:'start'});}
+  $('#poster').hidden=true;$('#endcard').hidden=true;
+  playing=true;last=performance.now();
+  document.getAnimations().forEach(a=>{if(a.playState==='paused')a.play();});
+  ui();requestAnimationFrame(tick);
+}
+function pause(){playing=false;document.getAnimations().forEach(a=>{if(a.playState==='running'&&!a.effect?.target?.closest?.('.bigplay'))a.pause();});ui();}
+/* ---------- full screen ---------- */
+const fsb=$('#fsbtn');
+const IC_IN='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+const IC_OUT='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4v5H4M15 4v5h5M9 20v-5H4M15 20v-5h5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+function isFs(){return document.fullscreenElement===player||document.webkitFullscreenElement===player||player.classList.contains('fsfake');}
+function updFs(){const on=isFs();player.classList.toggle('isfs',on);fsb.innerHTML=on?IC_OUT:IC_IN;fsb.setAttribute('aria-label',on?'Exit full screen':'Full screen');fsb.title=on?'Exit full screen':'Full screen';}
+function fakeFs(){player.classList.add('fsfake');document.documentElement.classList.add('fslock');updFs();}
+function enterFs(){
+  if(isFs())return;
+  const req=player.requestFullscreen||player.webkitRequestFullscreen;
+  if(!req){fakeFs();return;}
+  try{const pr=req.call(player);if(pr&&pr.catch)pr.catch(fakeFs);}catch(e){fakeFs();}
+}
+function exitFs(){
+  if(document.fullscreenElement){document.exitFullscreen().catch(()=>{});}
+  else if(document.webkitFullscreenElement&&document.webkitExitFullscreen){document.webkitExitFullscreen();}
+  player.classList.remove('fsfake');document.documentElement.classList.remove('fslock');updFs();
+}
+document.addEventListener('fullscreenchange',updFs);document.addEventListener('webkitfullscreenchange',updFs);
+fsb.addEventListener('click',()=>{isFs()?exitFs():enterFs();});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&player.classList.contains('fsfake'))exitFs();});
+$('#bigPlay').addEventListener('click',()=>{enterFs();run(0);play();});
+$('#pbtn').addEventListener('click',()=>{if(playing)pause();else{const first=!$('#poster').hidden;if(first){enterFs();if(t===0)run(0);}play();}});
+$('#replay').addEventListener('click',()=>{enterFs();run(0);play();});
+$('#chaps').addEventListener('click',e=>{const c=e.target.closest('.chap');if(!c)return;run(+c.dataset.t);play();});
+document.addEventListener('keydown',e=>{if(e.key===' '&&e.target===document.body){e.preventDefault();$('#pbtn').click();}});
+
+run(1200); // poster frame
 })();
 </script>
 </body>
