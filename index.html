@@ -770,7 +770,7 @@ section.scrolly,footer{background:linear-gradient(158deg,#052a5c,#03203f 62%,#02
 .rail li a.cur span{color:var(--a)}
 .rail li a.cur::before{border-color:var(--a); background:#fff; box-shadow:0 0 0 4px rgba(50,137,255,.18)}
 @media(max-width:1100px){.rail{display:none}}
-@media print{.rail{display:none!important}}
+@media print{.dotrail{display:none!important}}
 
 /* compare CTA */
 details.more{border:1.5px solid color-mix(in srgb,var(--a) 45%,transparent)!important; background:linear-gradient(90deg,#fff,var(--a-soft))!important}
@@ -1929,6 +1929,8 @@ body[data-opt="2"] #laneO2,body[data-opt="3"] #laneO2,body[data-opt="3"] #laneO3
   .xf-ar{transform:rotate(90deg); justify-self:center}
   #model .ramp3{grid-template-columns:1fr 1fr!important}
 }
+/* below ~860 the two capacity rows no longer fit side by side in the full-width card — stack them */
+@media(max-width:860px){#model .ramp3{grid-template-columns:1fr!important}}
 @media(max-width:620px){#model .ramp3{grid-template-columns:1fr!important}}
 
 /* ---- round 41: train-the-trainer ---- */
@@ -1961,129 +1963,6 @@ body[data-opt="2"] #laneO2,body[data-opt="3"] #laneO2,body[data-opt="3"] #laneO3
   .ttf + .ttf::before{left:50%; top:-15px; transform:translateX(-50%) rotate(90deg)}
 }
 
-
-/* ================= round 43: operating-model player ================= */
-#rollout{--pa:#3289ff;--pad:#0056b3;--pb:#00bfa6;--pb2:#00897b;--pamber:#d9922e;
-  --psurface:#fff;--psurface2:#e9f1f9;--pink:#0f1b2d;--pinksoft:#54637a;--pinkfaint:#7d8a9c;
-  --pline:rgba(15,27,45,.10);--pline2:rgba(15,27,45,.18);--pgrad:linear-gradient(96deg,#3289ff,#00bfa6)}
-@media(min-width:1001px){header.site nav.toc{overflow:visible}}
-#rollout [hidden]{display:none!important}
-#rollout .player{container-type:inline-size; display:flex; flex-direction:column; width:100%;
-  background:var(--psurface); border:1px solid var(--pline); border-radius:18px; overflow:hidden;
-  box-shadow:0 1px 2px rgba(19,34,56,.05),0 30px 64px -36px rgba(5,42,92,.45)}
-#rollout .hud{display:flex; flex-wrap:wrap; align-items:center; gap:8px 28px; padding:13px 20px; border-bottom:1px solid var(--pline)}
-#rollout .hud .when{font-weight:500; font-size:15.5px; min-width:104px; color:var(--pinksoft)}
-#rollout .hmeter{display:flex; align-items:center; gap:12px; flex:1; min-width:220px}
-#rollout .hmeter .lab{font-size:12.5px; font-weight:500; color:var(--pinkfaint); white-space:nowrap}
-#rollout .hmeter .bar{flex:1; height:5px; border-radius:99px; background:var(--psurface2); overflow:hidden}
-#rollout .hmeter .bar i{display:block; height:100%; width:0; background:var(--pgrad); border-radius:99px; transition:width 1.1s cubic-bezier(.3,.8,.3,1)}
-#rollout .hmeter b{font-size:14.5px; font-weight:500; white-space:nowrap; font-variant-numeric:tabular-nums}
-#rollout .hstat{display:flex; align-items:baseline; gap:8px}
-#rollout .hstat span{font-size:12.5px; font-weight:500; color:var(--pinkfaint)}
-#rollout .hstat b{font-size:15px; font-weight:600; font-variant-numeric:tabular-nums}
-#rollout .bump{animation:pbump .6s}
-@keyframes pbump{40%{transform:scale(1.12)}}
-
-#rollout .caption{padding:14px clamp(16px,2.4cqw,44px); display:grid; align-content:center; gap:.5cqw;
-  background:#f3f8fe; color:var(--pink); border-bottom:1px solid var(--pline)}
-#rollout .chip{justify-self:start; font-size:clamp(12px,1.1cqw,13.5px); font-weight:500; border-radius:999px;
-  padding:.3em .9em; background:var(--psurface2); color:var(--pinksoft)}
-#rollout .chip.k1{background:rgba(217,146,46,.13); color:#a86a12}
-#rollout .chip.k2{background:rgba(50,137,255,.10); color:var(--pad)}
-#rollout .chip.k3{background:rgba(0,191,166,.12); color:#00796d}
-#rollout .caption h2{font-size:clamp(18px,2.2cqw,27px); font-weight:600; line-height:1.25; color:var(--pink); letter-spacing:-.02em}
-#rollout .caption p{color:var(--pinksoft); font-size:clamp(14.5px,1.7cqw,19px); max-width:90ch; line-height:1.45}
-#rollout .caption.swap{animation:pcapin .5s ease}
-@keyframes pcapin{from{opacity:0;transform:translateY(6px)}}
-
-#rollout .stagewrap{position:relative; aspect-ratio:1200/660; display:flex; align-items:center; justify-content:center; background:#fafcfe}
-#rollout #world{display:block; width:100%; height:100%}
-#rollout .poster{position:absolute; inset:0; display:grid; place-content:center; justify-items:center; gap:10px;
-  background:rgba(255,255,255,.74); color:var(--pink); text-align:center; padding:16px}
-#rollout .bigplay{width:clamp(64px,8vw,92px); height:clamp(64px,8vw,92px); border-radius:50%; border:0;
-  background:var(--pgrad); color:#fff; font-size:clamp(22px,3vw,34px); display:grid; place-items:center;
-  box-shadow:0 20px 40px -14px rgba(5,42,92,.5); animation:pbreathe 2.2s ease-in-out infinite; cursor:pointer}
-#rollout .bigplay span{margin-left:5px}
-@keyframes pbreathe{50%{transform:scale(1.06)}}
-#rollout .poster b{font-size:clamp(17px,2vw,24px); font-weight:600; color:var(--pink)}
-#rollout .poster small{font-size:14px; color:var(--pinksoft)}
-#rollout .endcard{position:absolute; inset:0; background:rgba(255,255,255,.96); color:var(--pink);
-  display:grid; place-content:center; justify-items:center; text-align:center; gap:12px; padding:16px; overflow:auto}
-#rollout .endcard h2{font-size:clamp(21px,3vw,34px); font-weight:600; line-height:1.15; letter-spacing:-.02em}
-#rollout .endcard h2 .g{background:var(--pgrad); -webkit-background-clip:text; background-clip:text; color:transparent}
-#rollout .endcard p{color:var(--pinksoft); max-width:58ch; font-size:clamp(14.5px,1.8vw,18px)}
-#rollout .endcard .eyebrow{color:#00796d!important}
-#rollout .endcard .price{font-size:clamp(15px,1.7vw,19px); font-weight:500}
-#rollout .endcard .price b{font-size:1.4em; background:var(--pgrad); -webkit-background-clip:text; background-clip:text; color:transparent}
-#rollout .endbtns{display:flex; gap:10px; flex-wrap:wrap; justify-content:center}
-#rollout .btn{display:inline-flex; align-items:center; gap:8px; border-radius:10px; padding:11px 22px;
-  font-weight:500; font-size:15px; border:0; text-decoration:none; cursor:pointer}
-#rollout .btn-primary{background:var(--pgrad); color:#fff}
-#rollout .btn-ghost{background:transparent; color:var(--pad); border:1px solid color-mix(in srgb,var(--pa) 45%,transparent)}
-
-#rollout .controls{display:flex; align-items:center; gap:16px; padding:11px 20px 13px; border-top:1px solid var(--pline)}
-#rollout .pbtn{width:38px; height:38px; border-radius:50%; border:0; background:var(--pad); color:#fff;
-  display:grid; place-items:center; flex:none; font-size:13px; transition:background .2s; cursor:pointer}
-#rollout .pbtn:hover{background:var(--pa)}
-#rollout .chaps{display:flex; gap:6px; flex:1; min-width:0}
-#rollout .chap{flex:var(--w) 1 0; min-width:0; background:none; border:0; padding:0; text-align:left; display:grid; gap:7px; cursor:pointer}
-#rollout .chap .tr{height:3px; border-radius:99px; background:var(--psurface2); overflow:hidden}
-#rollout .chap .tr i{display:block; height:100%; width:0; background:var(--pa)}
-#rollout .chap span{font-size:12.5px; font-weight:400; color:var(--pinkfaint); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; transition:color .2s}
-#rollout .chap.cur span{color:var(--pink); font-weight:500}
-#rollout .chap:hover span{color:var(--pad)}
-#rollout .clock{font-size:12.5px; color:var(--pinkfaint); white-space:nowrap; font-variant-numeric:tabular-nums}
-#rollout .fsbtn{width:38px; height:38px; border-radius:10px; border:1px solid var(--pline2); background:var(--psurface);
-  color:var(--pink); display:grid; place-items:center; flex:none; cursor:pointer}
-#rollout .fsbtn:hover{border-color:var(--pa); color:var(--pad)}
-#rollout .fsbtn svg{width:20px; height:20px}
-#rollout .pnote{margin-top:14px; font-size:13px; color:var(--ink-3); text-align:center}
-@media(max-width:700px){#rollout .chap span{font-size:11px} #rollout .clock{display:none}}
-
-/* fullscreen */
-#rollout .player.isfs{position:fixed; inset:0; z-index:1000; width:100vw; height:100svh; max-width:none;
-  margin:0; border:0; border-radius:0; box-shadow:none}
-#rollout .player.isfs .stagewrap{aspect-ratio:auto; flex:1; min-height:0}
-#rollout .player.isfs .caption{padding-block:12px}
-
-/* SVG world */
-#rollout #world text{font-family:var(--sans)}
-#rollout #world .mono{font-variant-numeric:tabular-nums}
-#rollout .lyr,#rollout .part{opacity:0; transition:opacity .6s ease}
-#rollout .lyr.on,#rollout .part.on{opacity:1}
-#rollout .d{fill:#fff; stroke:#c3d1e2; stroke-width:1.5; transition:fill .5s,stroke .5s,opacity .6s}
-#rollout .d.on.A{fill:#3289ff;stroke:#3289ff}
-#rollout .d.on.B1{fill:#00bfa6;stroke:#00bfa6}
-#rollout .d.on.B2{fill:#3fd1b8;stroke:#3fd1b8}
-#rollout .d.on.idle{opacity:.28}
-#rollout #grid.hiA .d.A{stroke:#3289ff;stroke-width:3.5}
-#rollout #grid.hiB .d.B1,#rollout #grid.hiB .d.B2{stroke:#00a58f;stroke-width:3.5}
-#rollout .bar-fill{transform-box:fill-box; transform-origin:0 50%; transition:transform 1s cubic-bezier(.3,.8,.3,1)}
-#rollout .ck circle{fill:#fff; stroke:#b7c6d8; stroke-width:2; transition:fill .3s,stroke .3s}
-#rollout .ck text{opacity:0; transition:opacity .3s}
-#rollout .ck.done circle{fill:#00bfa6; stroke:#00bfa6}
-#rollout .ck.done text{opacity:1}
-#rollout .wk{transition:stroke .3s,stroke-width .3s}
-#rollout .wk.cur{stroke:#0056b3!important; stroke-width:4!important}
-#rollout .op{transition:filter .7s,opacity .7s}
-#rollout .op.inact{filter:grayscale(1); opacity:.3}
-#rollout .lc{transition:stroke-width .3s}
-#rollout .lc.lcur{stroke-width:4!important}
-#rollout .cp{transition:filter .6s,opacity .6s}
-#rollout .cp.inact{filter:grayscale(1); opacity:.4}
-#rollout #stg{transition:opacity .5s}
-#rollout .hideS{opacity:0!important}
-#rollout .rq.dim{opacity:.3; transition:opacity .6s}
-#rollout .aline{stroke-dasharray:1; stroke-dashoffset:1; transition:stroke-dashoffset 1.4s ease}
-#rollout .part.on .aline{stroke-dashoffset:0}
-#rollout #coh{transition:transform .8s ease}
-#rollout .oc rect.box{transition:stroke .3s,fill .3s}
-#rollout .oc.sel rect.box{stroke:#3289ff; stroke-width:4; fill:#f3f8ff}
-#rollout .rq .col{transform-box:fill-box; transform-origin:50% 100%; transform:scaleY(0); transition:transform 1s cubic-bezier(.3,.8,.3,1)}
-#rollout .rq.on .col{transform:scaleY(1)}
-#rollout .instant *,#rollout .instant{transition:none!important; animation:none!important}
-@media (prefers-reduced-motion:reduce){#rollout .bigplay{animation:none}}
-
 /* --- accessibility --- */
 .ocard:focus-visible,.oms-b:focus-visible,.osel:focus-visible{outline:2px solid var(--a); outline-offset:3px}
 .oms-b:focus-visible{outline-color:#7fd8c7}
@@ -2102,6 +1981,241 @@ body[data-opt="2"] #laneO2,body[data-opt="3"] #laneO2,body[data-opt="3"] #laneO3
   .hga-svg{max-width:460px}
 }
 </style>
+
+<style>
+/* ===== 05 Operating model: press-play rollout player =====
+   Ported from Techolution-Ferguson-Gemini-Enablement-Proposal.html.
+   Every rule is scoped to .omp so it cannot reach the rest of the deck. */
+.omp{
+  --a:#3289ff; --a-deep:#0056b3; --b:#00bfa6; --b2:#00897b; --b3:#3fd1b8; --amber:#d9922e; --night:#03203f; --night2:#0a2f5c;
+  --bg:#f4f8fc; --surface:#ffffff; --surface-2:#e9f1f9;
+  --ink:#0f1b2d; --ink-soft:#54637a; --ink-faint:#7d8a9c;
+  --line:rgba(15,27,45,.10); --line-2:rgba(15,27,45,.18);
+  --accent-text:#0056b3; --teal-text:#00796d; --amber-text:#a86a12;
+  --a-soft:rgba(50,137,255,.10); --b-soft:rgba(0,191,166,.12); --amber-soft:rgba(217,146,46,.13);
+  --shadow:0 30px 60px -34px rgba(5,42,92,.45);
+  --grad:linear-gradient(96deg,var(--a),var(--b));
+  --font:'Google Sans','Plus Jakarta Sans',system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+.omp [hidden]{display:none!important}
+.omp :focus-visible{outline:3px solid var(--a);outline-offset:2px;border-radius:6px}
+.omp .eyebrow{font-size:13.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-text)}
+/* player */
+.omp .player{container-type:inline-size;max-width:min(100%,calc((100svh - 360px) * 1.818));margin-inline:auto;scroll-margin-top:72px;background:var(--surface);border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow);overflow:hidden}
+.omp .hud{display:flex;flex-wrap:wrap;align-items:center;gap:8px 22px;padding:12px 18px;border-bottom:1px solid var(--line)}
+.omp .hud .when{font-weight:800;font-size:18px;min-width:120px}
+.omp .hmeter{display:flex;align-items:center;gap:10px;flex:1;min-width:220px}
+.omp .hmeter .lab{font-size:13.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-faint);white-space:nowrap}
+.omp .hmeter .bar{flex:1;height:11px;border-radius:99px;background:var(--surface-2);overflow:hidden}
+.omp .hmeter .bar i{display:block;height:100%;width:0;background:var(--grad);border-radius:99px;transition:width 1.1s cubic-bezier(.3,.8,.3,1)}
+.omp .hmeter b{font-family:var(--mono);font-size:16px;white-space:nowrap}
+.omp .hstat{display:flex;align-items:baseline;gap:7px}
+.omp .hstat span{font-size:13.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-faint)}
+.omp .hstat b{font-family:var(--mono);font-size:18px}
+.omp .bump{animation:bump .6s}
+@keyframes bump{40%{transform:scale(1.12)}}
+
+.omp .caption{padding:1.3cqw 2.4cqw;display:grid;align-content:center;gap:.6cqw;min-height:clamp(112px,12cqw,148px);background:linear-gradient(180deg,#0b2a4d,#03203f);color:#fff}
+.omp .chip{justify-self:start;font-size:clamp(12.5px,1.3cqw,15px);font-weight:700;border-radius:999px;padding:.25em .9em;background:rgba(255,255,255,.14);color:#dbe8f5}
+.omp .chip.k1{background:rgba(217,146,46,.28);color:#ffd79a}.omp .chip.k2{background:rgba(90,162,255,.26);color:#b7d5ff}.omp .chip.k3{background:rgba(0,191,166,.26);color:#8ff0e0}
+.omp .caption h2{font-size:clamp(19px,2.5cqw,30px);font-weight:800;line-height:1.2;color:#fff}
+.omp .caption p{color:#dbe6f2;font-size:clamp(15.5px,1.75cqw,20px);max-width:90ch;line-height:1.45}
+.omp .caption.swap{animation:capin .5s ease}
+@keyframes capin{from{opacity:0;transform:translateY(6px)}}
+
+.omp .stagewrap{position:relative;background:#eef4fb}
+.omp #world{display:block;width:100%;height:auto}
+.omp .poster{position:absolute;inset:0;display:grid;place-content:center;justify-items:center;gap:10px;background:rgba(3,32,63,.45);color:#fff;text-align:center;padding:16px}
+.omp .bigplay{width:clamp(64px,10vw,100px);height:clamp(64px,10vw,100px);border-radius:50%;border:0;background:var(--grad);color:#04241f;font-size:clamp(24px,3.4vw,38px);display:grid;place-items:center;box-shadow:0 20px 40px -12px rgba(0,0,0,.5);animation:breathe 2.2s ease-in-out infinite}
+.omp .bigplay span{margin-left:6px}
+@keyframes breathe{50%{transform:scale(1.06)}}
+.omp .poster b{font-size:clamp(18px,2.6vw,28px);font-weight:800;text-shadow:0 2px 12px rgba(0,0,0,.4)}
+.omp .poster small{font-size:16px;opacity:.95}
+.omp .endcard{position:absolute;inset:0;background:rgba(3,32,63,.93);color:#fff;display:grid;place-content:center;justify-items:center;text-align:center;gap:12px;padding:16px;overflow:auto}
+.omp .endcard h2{font-size:clamp(22px,3.6vw,42px);font-weight:800;line-height:1.1}
+.omp .endcard h2 .g{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.omp .endcard p{color:#dbe6f2;max-width:58ch;font-size:clamp(15px,1.9vw,19px)}
+.omp .endcard .price{font-size:clamp(16px,2vw,21px);font-weight:700}
+.omp .endcard .price b{font-size:1.4em;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.omp .endbtns{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.omp .btn{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:11px 22px;font-weight:700;font-size:16px;border:0;text-decoration:none}
+.omp .btn-primary{background:var(--grad);color:#04241f}
+.omp .btn-ghost{background:transparent;color:#dbe8f5;border:1px solid rgba(255,255,255,.4)}
+
+.omp .controls{display:flex;align-items:center;gap:14px;padding:10px 20px 16px}
+.omp .pbtn{width:44px;height:44px;border-radius:50%;border:0;background:var(--a-deep);color:#fff;display:grid;place-items:center;flex:none;font-size:16px}
+.omp .chaps{display:flex;gap:4px;flex:1;min-width:0}
+.omp .chap{flex:var(--w) 1 0;min-width:0;background:none;border:0;padding:0;text-align:left;display:grid;gap:5px}
+.omp .chap .tr{height:7px;border-radius:4px;background:var(--surface-2);overflow:hidden}
+.omp .chap .tr i{display:block;height:100%;width:0;background:var(--grad)}
+.omp .chap span{font-size:14px;font-weight:600;color:var(--ink-faint);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.omp .chap.cur span{color:var(--ink)}
+.omp .chap:hover span{color:var(--accent-text)}
+.omp .clock{font-family:var(--mono);font-size:14.5px;color:var(--ink-faint);white-space:nowrap}
+@media(max-width:700px){.omp .chap span{font-size:11.5px}.omp .clock{display:none}}
+.omp .note{font-size:15px;color:var(--ink-faint);margin-top:12px;text-align:center}
+
+/* SVG world */
+.omp #world text{font-family:'Google Sans','Plus Jakarta Sans',system-ui,sans-serif}
+.omp #world .mono{font-family:'JetBrains Mono',monospace}
+.omp .lyr,.omp .part{opacity:0;transition:opacity .6s ease}
+.omp .lyr.on,.omp .part.on{opacity:1}
+.omp .d{fill:#fff;stroke:#c3d1e2;stroke-width:1.5;transition:fill .5s,stroke .5s,opacity .6s}
+.omp .d.on.A{fill:#3289ff;stroke:#3289ff}.omp .d.on.B1{fill:#00bfa6;stroke:#00bfa6}.omp .d.on.B2{fill:#3fd1b8;stroke:#3fd1b8}
+.omp .d.on.idle{opacity:.28}
+.omp #grid.hiA .d.A{stroke:#3289ff;stroke-width:3.5}
+.omp #grid.hiB .d.B1,.omp #grid.hiB .d.B2{stroke:#00a58f;stroke-width:3.5}
+.omp .bar-fill{transform-box:fill-box;transform-origin:0 50%;transition:transform 1s cubic-bezier(.3,.8,.3,1)}
+.omp .ck circle{fill:#fff;stroke:#b7c6d8;stroke-width:2;transition:fill .3s,stroke .3s}
+.omp .ck text{opacity:0;transition:opacity .3s}
+.omp .ck.done circle{fill:#00bfa6;stroke:#00bfa6}
+.omp .ck.done text{opacity:1}
+.omp .wk{transition:stroke .3s,stroke-width .3s}
+.omp .op{transition:filter .7s,opacity .7s}.omp .op.inact{filter:grayscale(1);opacity:.3}
+.omp .lc{transition:stroke-width .3s}.omp .lc.lcur{stroke-width:4!important}
+.omp .cp{transition:filter .6s,opacity .6s}.omp .cp.inact{filter:grayscale(1);opacity:.4}
+.omp #stg{transition:opacity .5s}.omp .hideS{opacity:0!important}
+.omp .rq.dim{opacity:.3;transition:opacity .6s}
+.omp .aline{stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 1.4s ease}
+.omp .part.on .aline{stroke-dashoffset:0}
+.omp .wk.cur{stroke:#0056b3!important;stroke-width:4!important}
+.omp #coh{transition:transform .8s ease}
+.omp .oc rect.box{transition:stroke .3s,fill .3s}
+.omp .oc.sel rect.box{stroke:#3289ff;stroke-width:4;fill:#f3f8ff}
+.omp .rq .col{transform-box:fill-box;transform-origin:50% 100%;transform:scaleY(0);transition:transform 1s cubic-bezier(.3,.8,.3,1)}
+.omp .rq.on .col{transform:scaleY(1)}
+.omp .instant *,.omp .instant{transition:none!important;animation:none!important}
+
+@media (prefers-reduced-motion: reduce){.omp .bigplay{animation:none}}
+.omp .btn{border-radius:10px}
+.omp .btn-primary{color:#fff}
+.omp .eyebrow{display:inline-flex;align-items:center;gap:11px;letter-spacing:.2em;color:var(--a-deep);font-size:13px}
+.omp .eyebrow::before{content:"";width:26px;height:2px;background:var(--grad);flex:none}
+.omp .endcard .eyebrow{color:#7fd8c9}
+/* ===== full-screen video ===== */
+.omp .fsbtn{width:42px;height:42px;border-radius:10px;border:1px solid var(--line-2);background:var(--surface);color:var(--ink);display:grid;place-items:center;flex:none}
+.omp .fsbtn:hover{border-color:var(--a);color:var(--accent-text)}
+.omp .fsbtn svg{width:22px;height:22px}
+.omp .player.isfs{max-width:none!important;width:100vw;height:100vh;height:100dvh;margin:0;border:0;border-radius:0;display:flex;flex-direction:column;box-shadow:none}
+.omp .player.fsfake{position:fixed;inset:0;z-index:1000}
+html.fslock{overflow:hidden}
+.omp .player.isfs .stagewrap{flex:1;min-height:0;display:flex;align-items:center;justify-content:center}
+.omp .player.isfs #world{width:100%;height:100%}
+.omp .player.isfs .caption{min-height:0;padding-block:12px}
+.omp .player:fullscreen{background:var(--surface)}
+.omp .caption{background:#f3f8fe;color:var(--ink);border-bottom:1px solid var(--line)}
+.omp .caption h2{color:var(--ink)}.omp .caption p{color:var(--ink-soft)}
+.omp .chip{background:var(--surface-2);color:var(--ink-soft)}
+.omp .chip.k1{background:var(--amber-soft);color:var(--amber-text)}.omp .chip.k2{background:var(--a-soft);color:var(--accent-text)}.omp .chip.k3{background:var(--b-soft);color:var(--teal-text)}
+.omp .poster{background:rgba(255,255,255,.74);color:var(--ink)}
+.omp .poster b{text-shadow:none;color:var(--ink)}.omp .poster small{color:var(--ink-soft)}
+.omp .endcard{background:rgba(255,255,255,.96);color:var(--ink)}
+.omp .endcard p{color:var(--ink-soft)}
+.omp .endcard .btn-ghost{color:var(--accent-text);border-color:color-mix(in srgb,var(--a) 45%,transparent)}
+.omp .endcard .eyebrow{color:var(--teal-text)!important}
+
+/* --- host-page integration --- */
+.omp-sec .om-hint{color:var(--a-deep); font-weight:600; font-size:15px; margin-top:12px}
+.omp{max-width:1080px; margin-inline:auto; font-family:var(--font); color:var(--ink); line-height:1.55; font-size:17px}
+.omp .player{max-width:min(100%,1080px); scroll-margin-top:calc(var(--hdr,61px) + 16px)}
+.omp .mplayer{display:block}
+/* defensive resets: stop host-deck rules from reaching into the player.
+   The deck sets h2{font-size:...!important} globally, so the player's own
+   caption and end-card headings have to answer in kind. */
+.omp .caption h2{font-size:clamp(19px,2.5cqw,30px)!important; font-weight:800; line-height:1.2}
+.omp .endcard h2{font-size:clamp(22px,3.6vw,42px)!important; font-weight:800; line-height:1.1}
+.omp .endcard .price{display:block; margin:0}
+.omp .eyebrow{margin:0}
+.omp .eyebrow::before{transition:none}
+.omp .wk{padding:0; border:0}
+.omp h2,.omp h3{margin:0; text-wrap:balance; letter-spacing:-.02em}
+.omp p{margin:0}
+@media print{.omp-sec{display:none!important}}
+
+/* ===== side rail: quick table of contents ===== */
+.dotrail{position:fixed; right:14px; top:50%; transform:translateY(-50%); z-index:55; display:none; grid-auto-flow:row; gap:11px; padding:10px 8px; border-radius:999px; background:color-mix(in srgb,var(--card) 70%,transparent); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); box-shadow:0 10px 30px -18px rgba(5,42,92,.4)}
+.dotrail a{position:relative; display:block; width:11px; height:11px; border-radius:50%; background:var(--rule-2); box-shadow:0 0 0 2px var(--card); transition:background .25s, transform .25s, box-shadow .25s}
+.dotrail a:hover,.dotrail a:focus-visible{background:var(--a); outline:none}
+.dotrail a[aria-current="true"]{background:linear-gradient(150deg,var(--a),var(--b)); transform:scale(1.45); box-shadow:0 0 0 2px var(--card),0 0 0 4px var(--a-soft)}
+.dotrail .rail-tip{position:absolute; right:22px; top:50%; transform:translateY(-50%) translateX(4px); white-space:nowrap; background:var(--night); color:#fff; font-size:13px; font-weight:600; letter-spacing:.01em; border-radius:8px; padding:5px 11px; opacity:0; pointer-events:none; box-shadow:0 8px 20px -10px rgba(3,32,63,.6); transition:opacity .2s, transform .2s}
+.dotrail a:hover .rail-tip,.dotrail a:focus-visible .rail-tip{opacity:1; transform:translateY(-50%) translateX(0)}
+@media (min-width:1000px) and (min-height:560px){.dotrail{display:grid}}
+@media print{.rail{display:none!important}}
+
+/* ===== deck mode: one section per screen, scroll snaps between them ===== */
+html.deck{--deck-top:calc(env(safe-area-inset-top,0px) + 70px); scroll-snap-type:y mandatory; scroll-padding-top:var(--deck-top)}
+html.deck body{overflow-x:hidden}
+.deck main > section.cover,
+.deck main > section.ch:not(.print-only),
+.deck main > section.omp-sec{
+  min-height:calc(100svh - var(--deck-top));
+  display:flex; flex-direction:column; justify-content:center;
+  scroll-snap-align:start; scroll-snap-stop:always;
+  padding-top:clamp(16px,2.6vh,40px)!important; padding-bottom:clamp(16px,2.6vh,40px)!important;
+}
+/* a section that can't shrink to one screen keeps normal flow and opts out of snapping */
+.deck main > section.no-snap{
+  min-height:0; justify-content:flex-start; scroll-snap-align:none; scroll-snap-stop:normal;
+  padding-top:clamp(40px,6vh,86px)!important; padding-bottom:clamp(40px,6vh,86px)!important;
+}
+.deck main > section > .wrap{width:100%}
+/* use the sides: the heading stays on top at full width and the content boxes
+   stretch across the whole screen, so every slide fits at normal size (no zooming out) */
+.deck main > section.ch:not(.print-only):not(#options) > .wrap{
+  /* divided by the deck scale so the slide still fills the screen's width once scaled —
+     without this, shrinking to fit also shrank the sides and left big empty margins */
+  max-width:calc(min(1600px,100vw - 104px) / var(--deck-scale,1));
+  padding-left:clamp(20px,1.8vw,36px); padding-right:clamp(20px,1.8vw,36px);
+}
+.deck main > section.ch:not(.print-only):not(#options) .ch-head{
+  display:block!important; margin:0 0 clamp(14px,2.2vh,28px) 0!important;
+}
+.deck main > section.ch:not(.print-only):not(#options) .ch-head .lede{max-width:108ch}
+.deck main > section.ch:not(.print-only):not(#options) .ch-body{margin-left:0!important; min-width:0}
+.deck main > section.ch:not(.print-only):not(#options) .ch-no{display:none}
+
+/* deck: the blocks are already full-width, so recover height from the vertical
+   stacking — tighter block gaps and right-sized chart/media boxes */
+.deck main > section.ch:not(#options) .value{margin-top:14px}
+.deck #summary .opt-choose{margin-top:14px}
+.deck #summary .ocards{margin-top:12px}
+.deck #model .xgrid{margin-top:12px}
+.deck #tracks .trk-two{margin-top:4px}
+.deck #self-service .hga{margin-top:12px; padding-top:12px}
+.deck #self-service .ac{margin-top:10px}
+.deck #self-service .ac-track{height:84px}
+.deck #self-service .vbox{margin-top:10px; aspect-ratio:12/5}
+
+/* ===== heading on the left, content fitted on the right ===== */
+.deck #rollout > .wrap,
+.deck #self-service > .wrap{
+  display:grid; grid-template-columns:minmax(260px,330px) minmax(0,1fr);
+  gap:clamp(24px,2.4vw,44px); align-items:center;
+}
+.deck #self-service .ch-head{margin:0!important; align-self:center}
+.deck #self-service .ch-head .lede{max-width:none; margin-top:12px}
+.deck #self-service .ch-body{margin:0!important; min-width:0}
+.deck #self-service .value{margin-top:16px}
+.deck #rollout .ch-head{margin:0!important; align-self:center}
+.deck #rollout .ch-head .lede{max-width:none; margin-top:12px}
+.deck #rollout .om-hint{margin-top:16px}
+.deck #rollout .ch-body{margin:0!important; min-width:0}
+.deck #rollout .omp{max-width:none; margin:0}
+/* width is capped by the column AND by the screen height, so the whole player fits one slide */
+.deck #rollout .omp .player{max-width:min(100%,calc((100svh - 360px) * 1.818))}
+.deck #rollout .omp .note{margin-top:10px; text-align:left}
+/* while the player is full screen it must not inherit the deck's scale */
+.deck #rollout:has(.player.isfs),.deck #rollout:has(.player.fsfake){zoom:1!important; min-height:0!important}
+
+/* the player reads in Google Sans like the rest of the proposal */
+.omp{--font:var(--sans); --mono:var(--sans)}
+.omp #world text{font-family:var(--sans)}
+.omp #world .mono{font-family:var(--sans); font-variant-numeric:tabular-nums}
+.omp .hmeter b,.omp .hstat b,.omp .clock,.omp .mono{font-variant-numeric:tabular-nums; letter-spacing:0}
+.omp .caption h2,.omp .endcard h2,.omp .hud .when,.omp .hstat b,.omp .poster b,.omp .chip,.omp .btn{font-weight:700}
+@media print{html.deck{scroll-snap-type:none}}
+</style>
 </head>
 <body>
 
@@ -2119,12 +2233,14 @@ body[data-opt="2"] #laneO2,body[data-opt="3"] #laneO2,body[data-opt="3"] #laneO3
       <a href="#model" data-sec="model">Expansion plan</a>
       <a href="#rollout" data-sec="rollout">Operating model</a>
       <a href="#tracks" data-sec="tracks">Enablement tracks</a>
-      <div class="dd" id="moreDD">
-        <button type="button" class="dd-btn" aria-expanded="false" aria-haspopup="true" data-sec="self-service reporting ttt">More <span class="car" aria-hidden="true">▾</span></button>
-        <div class="dd-menu" role="menu">
-          <a href="#self-service" role="menuitem" data-sec="self-service">Self-service</a>
-          <a href="#reporting" role="menuitem" data-sec="reporting">Executive reporting</a>
-          <a href="#ttt" role="menuitem" data-sec="ttt">Train-the-trainer</a>
+      <div class="dd" id="moreDd">
+        <button type="button" class="dd-btn" id="moreBtn" data-sec="self-service reporting ttt" aria-haspopup="true" aria-expanded="false" aria-controls="moreMenu">More <span class="car" aria-hidden="true">▾</span></button>
+        <div class="dd-menu" id="moreMenu" role="menu" aria-label="More sections">
+          <a href="#top" role="menuitem"><i class="da"></i>Overview</a>
+          <a href="#self-service" data-sec="self-service" role="menuitem"><i class="db"></i>Self-service</a>
+          <a href="#reporting" data-sec="reporting" role="menuitem"><i class="da"></i>Reporting</a>
+          <a href="#ttt" data-sec="ttt" role="menuitem"><i class="db"></i>Train-the-trainer</a>
+          <a href="#compare" role="menuitem"><i class="da"></i>Compare options</a>
         </div>
       </div>
       <a href="#options" data-sec="options" class="opt-link">Service options</a>
@@ -2132,6 +2248,8 @@ body[data-opt="2"] #laneO2,body[data-opt="3"] #laneO2,body[data-opt="3"] #laneO3
   </div>
   <div class="prog" id="prog"></div>
 </header>
+
+<nav class="dotrail" id="railNav" aria-label="Jump to section"></nav>
 
 <main id="top">
 <section class="cover" aria-labelledby="t">
@@ -2319,14 +2437,17 @@ body[data-opt="2"] #laneO2,body[data-opt="3"] #laneO2,body[data-opt="3"] #laneO3
 </section>
 
 <!-- 05 OPERATING MODEL -->
-<section class="ch alt" id="rollout" aria-labelledby="hrm">
+<section class="ch alt omp-sec" id="rollout" aria-labelledby="h4r">
   <div class="wrap">
     <div class="ch-head">
       <div class="ch-no" aria-hidden="true"></div>
-      <div><span class="eyebrow">05 · Operating model</span><h2 id="hrm">The monthly cycle and the rollout</h2>
-        <p class="lede">Every cohort follows the same four-week cycle, and cohort by cohort every license is live by Q1 2028. Press play to watch how each option changes the cycle — and the adoption it delivers.</p></div>
+      <div><span class="eyebrow">05 · Operating model</span><h2 id="h4r">The monthly cycle and the rollout</h2>
+        <p class="lede">Every cohort follows the same four-week cycle. Weeks 1 to 3 activate a new cohort each week, with a workshop and office hours. Week 4 is an adoption break. Cohort by cohort, every license is live by Q1 2028.</p>
+        <p class="om-hint">Press play to watch it full screen: how each option changes the cycle, and the adoption it delivers.</p></div>
     </div>
     <div class="ch-body">
+      <div class="omp">
+        <div class="mplayer">
   <div class="player" id="player">
     <div class="hud">
       <span class="when" id="hWhen">Q4 2026</span>
@@ -2620,7 +2741,10 @@ body[data-opt="2"] #laneO2,body[data-opt="3"] #laneO2,body[data-opt="3"] #laneO3
       <span class="clock" id="clock">0:00 / 0:51</span>
       <button class="fsbtn" id="fsbtn" type="button" aria-label="Full screen" title="Full screen"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
     </div>
-      <p class="pnote">Cohort visuals are illustrative.</p>
+  </div>
+        </div>
+        <p class="note">Cohort visuals are illustrative.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -3049,8 +3173,108 @@ body[data-opt="2"] #laneO2,body[data-opt="3"] #laneO2,body[data-opt="3"] #laneO3
   var seg=function(p,a,b){return clamp((p-a)/(b-a),0,1)};
   var ease=function(t){return 1-Math.pow(1-t,3)};
 
-  var prog=document.getElementById('prog');
-  function progUpdate(){var de=document.documentElement; if(prog) prog.style.width=(scrollY/(de.scrollHeight-innerHeight)*100)+'%';}
+  var fmtx=0;
+  /* scroll story: horizontal timeline, quarters on top */
+  var QS=[['Q4 2026','Foundation'],['Q1 2027','Scale'],['Q2 2027','Track A complete'],['Q3 2027','Enterprise scale'],['Q4 2027','Optimize'],['Q1 2028','All live']];
+  var A_BASE=600, A=[1500,2400,3500], B1=[900,2475,4050,5625,7200,8750];
+  var grid=document.getElementById('hgrid'), cells={a:[],b1:[],b2:[]}, qhs=[];
+  function mk(cls,row,col,html){var d=document.createElement('div'); d.className=cls; d.style.gridRow=row; d.style.gridColumn=col; d.innerHTML=html; grid.appendChild(d); return d}
+  var hls=[];
+  if(grid){
+  grid.appendChild(Object.assign(document.createElement('div'),{className:'qrule',id:'qrule'}));
+  QS.forEach(function(q,i){
+    var c=4+i;
+    hls.push(mk('colhl',1,c,''));
+    qhs.push(mk('qh',1,c,'<b>'+q[0]+'</b><span>'+q[1]+'</span>'));
+    if(i<3){var pa=i?A[i-1]:A_BASE; cells.a.push(mk('dc a',2,c,'<div class="v">'+fmt(pa)+'</div><div class="d">+'+fmt(A[i]-pa)+'</div>'));}
+    else cells.a.push(mk('dc a sup',2,c,'<div class="v">Support-led</div><div class="d">3,500 sustained</div>'));
+    [['b1',3],['b2',4]].forEach(function(t){var p=i?B1[i-1]:0;
+      cells[t[0]].push(mk('dc '+t[0],t[1],c,'<div class="v">'+fmt(p)+'</div><div class="d">+'+fmt(B1[i]-p)+'</div>'));});
+  });
+  }
+
+  var $=function(id){return document.getElementById(id)};
+  var hdr=$('hdr'), scrolly=$('rollout'), stage=$('stage'), root=$('vroot'), hwrap=$('hwrap'),
+      tlA=$('tlA'), tlB=$('tlB'), tlB1=$('tlB1'), tlB2=$('tlB2'),
+      laneA=$('laneA'), laneB1=$('laneB1'), laneB2=$('laneB2'),
+      qpanel=$('qpanel'),
+      fA=laneA&&laneA.querySelector('i'), fB1=laneB1&&laneB1.querySelector('i'), fB2=laneB2&&laneB2.querySelector('i'),
+      caps=document.querySelectorAll('.scap'), dots=document.querySelectorAll('.stepper span'),
+      cn=$('cn'), cbar=$('cbar'), hint=$('hint'), prog=$('prog'),
+      W={A:$('wA'),B:$('wB'),B1:$('wB1'),B2:$('wB2')}, len={}, L={dx:0};
+  var lastStep=-1, lastQ=-1;
+  function elbow(x1,y1,x2,y2){var mx=x1+(x2-x1)/2; return 'M'+x1+','+y1+' H'+mx+' V'+y2+' H'+x2}
+  var storyEl=document.querySelector('#rollout .story');
+  var counterEl=document.querySelector('#rollout .counter');
+  function syncStory(){
+    if(!storyEl) return;
+    var de=document.documentElement;
+    if(counterEl && storyEl.parentNode && innerWidth>1040){
+      storyEl.style.maxWidth='';
+      var avail=counterEl.getBoundingClientRect().left - storyEl.getBoundingClientRect().left - 24;
+      storyEl.style.maxWidth = Math.max(320,avail)+'px';
+    } else storyEl.style.maxWidth='';
+    de.style.setProperty('--storyh',storyEl.offsetHeight+'px');
+  }
+  /* the scroll-driven rollout timeline was replaced by the press-play player in 05;
+     these two functions stand down when its elements are absent. */
+  var hasStory=!!(grid&&stage&&root&&laneA);
+  function layout(){
+    document.documentElement.style.setProperty('--hdr',hdr.offsetHeight+'px');
+    syncStory();
+    if(!hasStory){ update(); return }
+    var t=root.style.transform; root.style.transform='none';
+    var g=grid.getBoundingClientRect(), R=function(e){var r=e.getBoundingClientRect(); return {l:r.left-g.left,r:r.right-g.left,t:r.top-g.top,b:r.bottom-g.top,cy:r.top-g.top+r.height/2,cx:r.left-g.left+r.width/2}};
+    var n=R(root), a=R(tlA), bg=R(tlB), b1=R(tlB1), b2=R(tlB2);
+    W.A.setAttribute('d',elbow(n.r,n.cy,a.l-6,a.cy));
+    W.B.setAttribute('d',elbow(n.r,n.cy,bg.l-6,bg.cy));
+    W.B1.setAttribute('d',elbow(bg.r-2,bg.cy,b1.l-6,b1.cy));
+    W.B2.setAttribute('d',elbow(bg.r-2,bg.cy,b2.l-6,b2.cy));
+    for(var k in W){len[k]=W[k].getTotalLength()||1; W[k].style.strokeDasharray=len[k]}
+    L.dx=(g.width/2)-(n.l+(n.r-n.l)/2);
+    root.style.transform=t;
+    update();
+  }
+
+  function update(){
+    var de=document.documentElement; prog.style.width=(scrollY/(de.scrollHeight-innerHeight)*100)+'%';
+    if(!hasStory) return;
+    var rect=scrolly.getBoundingClientRect(), total=scrolly.offsetHeight-stage.offsetHeight;
+    var p=clamp((hdr.offsetHeight-rect.top)/total,0,1);
+    var s2=seg(p,.14,.26), s2b=seg(p,.30,.40), s3=seg(p,.40,.46), f=seg(p,.46,.90)*6;
+    var e2=ease(s2);
+    root.style.transform='translateX('+(L.dx*(1-e2))+'px) scale('+(1.18-.18*e2)+')';
+    W.A.style.strokeDashoffset=len.A*(1-seg(p,.14,.26)); W.B.style.strokeDashoffset=len.B*(1-seg(p,.14,.26));
+    W.B1.style.strokeDashoffset=len.B1*(1-seg(p,.30,.40)); W.B2.style.strokeDashoffset=len.B2*(1-seg(p,.30,.40));
+    tlA.style.opacity=tlB.style.opacity=s2;
+    tlB1.style.opacity=tlB2.style.opacity=s2b;
+    laneA.style.opacity=s3; laneB1.style.opacity=laneB2.style.opacity=s3*(s2b||0);
+    var span=function(v){return clamp(v-1,0,5)*(100/6)};
+    fB1.style.width=span(f)+'%'; fB2.style.width=span(f)+'%'; fA.style.width=span(Math.min(f,3))+'%';
+    var qr=document.getElementById('qrule'); if(qr) qr.style.opacity=s3;
+    var aVal=A_BASE*seg(p,.16,.28), bVal=0;
+    for(var i=0;i<6;i++){
+      var k=clamp(f-i,0,1), ke=ease(k), hit=f>=i+.5, cur=f>i&&f<i+1, vis=s3*(.25+.75*k);
+      qhs[i].style.opacity=s3*(.45+.55*clamp(f-i+0.7,0,1));
+      qhs[i].classList.toggle('now',cur); hls[i].classList.toggle('now',cur);
+      cells.a[i].style.opacity=vis; cells.b1[i].style.opacity=vis*(s2b||0); cells.b2[i].style.opacity=vis*(s2b||0);
+      ['a','b1','b2'].forEach(function(t){cells[t][i].classList.toggle('hit',hit)});
+      var pb=i?B1[i-1]:0, vb=pb+(B1[i]-pb)*ke;
+      cells.b1[i].firstChild.textContent=fmt(vb); cells.b2[i].firstChild.textContent=fmt(vb);
+      if(k>0) bVal=vb*2;
+      if(i<3){var pa=i?A[i-1]:A_BASE, va=pa+(A[i]-pa)*ke; cells.a[i].firstChild.textContent=fmt(va); if(k>0) aVal=va;}
+    }
+    var tot=aVal+bVal; cn.textContent=fmt(tot); cbar.style.width=Math.min(tot/21000*100,100)+'%';
+    var qi=Math.floor(clamp(f,0,5.99));
+    var cqEl=document.getElementById('cq'); if(cqEl) cqEl.textContent= f>0 ? '· '+QS[qi][0] : '';
+    var nh=document.getElementById('nextHint'); if(nh) nh.style.opacity= (p>.02 && p<.9) ? 1 : 0;
+    setNarr(f>0 ? qi : -1);
+    if(qi!==lastQ && hwrap.scrollWidth>hwrap.clientWidth+24){var t=qhs[qi];
+      hwrap.scrollTo({left:t.offsetLeft-hwrap.clientWidth/2+t.offsetWidth/2,behavior:'smooth'}); lastQ=qi;}
+    var step=p<.12?0:p<.28?1:p<.42?2:p<.93?3:4;
+    if(step!==lastStep){caps.forEach(function(c,i){c.classList.toggle('on',i===step)}); dots.forEach(function(d,i){d.classList.toggle('on',i<=step)}); lastStep=step;}
+    hint.style.opacity=p<.05?1:0;
+  }
 
   /* options view toggle: same cards, different content */
   var vbtns=document.querySelectorAll('.viewbar button'), box=document.getElementById('optsBox');
@@ -3087,16 +3311,21 @@ body[data-opt="2"] #laneO2,body[data-opt="3"] #laneO2,body[data-opt="3"] #laneO3
   var secs=secIds.map(function(id){return document.getElementById(id)});
   var curSec=null;
   function visibleEl(id){
+    var fallback=null;
     for(var k=0;k<navEls.length;k++){var e=navEls[k];
-      if(e.getAttribute('data-sec').split(' ').indexOf(id)>=0) return e;}
-    return null;
+      if(e.getAttribute('data-sec').split(' ').indexOf(id)>=0){
+        if(e.offsetParent!==null) return e;   /* prefer the on-screen element (More button vs. collapsed inline link) */
+        if(!fallback) fallback=e;
+      }}
+    return fallback;
   }
+  var ddMenuLinks=[].slice.call(document.querySelectorAll('#moreMenu a'));
   function placePill(){
-    navEls.forEach(function(e){e.classList.remove('is-active'); e.classList.remove('cur')});
+    navEls.forEach(function(e){e.classList.remove('is-active')});
+    ddMenuLinks.forEach(function(a){a.classList.toggle('cur',a.getAttribute('data-sec')===curSec)});
     if(!curSec){pill.classList.remove('on'); return}
     var el=visibleEl(curSec); if(!el){pill.classList.remove('on'); return}
     el.classList.add('is-active');
-    var mi=toc.querySelector('.dd-menu a[data-sec="'+curSec+'"]'); if(mi) mi.classList.add('cur');
     var er=el.getBoundingClientRect(), tr=toc.getBoundingClientRect(); var lx=er.left-tr.left+toc.scrollLeft; pill.style.left=lx+'px'; pill.style.width=er.width+'px';
     pill.classList.toggle('green',curSec==='options'); pill.classList.add('on');
     if(toc.scrollWidth>toc.clientWidth){toc.scrollTo({left:lx-toc.clientWidth/2+er.width/2,behavior:'smooth'})}
@@ -3106,12 +3335,6 @@ body[data-opt="2"] #laneO2,body[data-opt="3"] #laneO2,body[data-opt="3"] #laneO3
     secs.forEach(function(sec,k){if(sec && sec.getBoundingClientRect().top<=line) found=secIds[k]});
     if(found!==curSec){curSec=found; placePill()}
   }
-  var moreDD=document.getElementById('moreDD'), moreBtn=moreDD&&moreDD.querySelector('.dd-btn');
-  if(moreDD){
-    moreBtn.addEventListener('click',function(){var o=!moreDD.classList.contains('open'); moreDD.classList.toggle('open',o); moreBtn.setAttribute('aria-expanded',o)});
-    document.addEventListener('click',function(e){if(!moreDD.contains(e.target)){moreDD.classList.remove('open'); moreBtn.setAttribute('aria-expanded','false')}});
-    moreDD.querySelectorAll('.dd-menu a').forEach(function(a){a.addEventListener('click',function(){moreDD.classList.remove('open'); moreBtn.setAttribute('aria-expanded','false')})});
-  }
   addEventListener('scroll',function(){requestAnimationFrame(trackSec)},{passive:true});
   addEventListener('resize',placePill);
   if(document.fonts&&document.fonts.ready) document.fonts.ready.then(placePill);
@@ -3120,7 +3343,7 @@ body[data-opt="2"] #laneO2,body[data-opt="3"] #laneO2,body[data-opt="3"] #laneO3
   addEventListener('beforeprint',function(){document.querySelectorAll('details').forEach(function(d){d.setAttribute('data-was',d.open?'1':'0'); d.open=true})});
   addEventListener('afterprint',function(){document.querySelectorAll('details').forEach(function(d){d.open=d.getAttribute('data-was')==='1'})});
   var ticking=false;
-  addEventListener('scroll',function(){if(!ticking){ticking=true; requestAnimationFrame(function(){progUpdate(); ticking=false})}},{passive:true});
+  addEventListener('scroll',function(){if(!ticking){ticking=true; requestAnimationFrame(function(){update(); ticking=false})}},{passive:true});
 
   /* ---------- service option selection ---------- */
   var OPTS={
@@ -3137,6 +3360,61 @@ body[data-opt="2"] #laneO2,body[data-opt="3"] #laneO2,body[data-opt="3"] #laneO3
        summary:'<b>Option 3 \u00b7 express.</b> Everything in Option 2, plus a dedicated adoption team, in-person train-the-trainer and targeted outreach to inactive and low-active users. Targeting approximately 90% estimated adoption.',
        q:'Option 3: activated users who stay inactive are identified and re-engaged.'}
   };
+  var QMAP=[
+    {q:'Q4 2026',ph:'Rollout foundation',line:'Activation begins on both tracks. Track A runs enablement-led while the first frontline cohorts start.',
+     act:'900 a month',ws:'2 a month',oh:'Daily, 1 hr',ag:'20%'},
+    {q:'Q1 2027',ph:'Scale adoption',line:'Activation steps up and Track B doubles its workshop cadence to keep pace with the larger cohorts.',
+     act:'1,350 a month',ws:'4 a month',oh:'Daily, 1 hr',ag:'30%'},
+    {q:'Q2 2027',ph:'Track A complete',line:'Track A reaches all 3,500 corporate users and moves from enablement-led to support-led delivery.',
+     act:'1,350 a month',ws:'4 a month',oh:'Daily, 1 hr',ag:'40%'},
+    {q:'Q3 2027',ph:'Enterprise scale',line:'Track B passes 11,250 users on the same weekly cohort rhythm, with self-service carrying more questions.',
+     act:'1,350 a month',ws:'4 a month',oh:'Daily, 1 hr',ag:'50%'},
+    {q:'Q4 2027',ph:'Optimize and sustain',line:'Cadence eases as adoption matures: fewer scheduled sessions, more answered through self-service.',
+     act:'1,350 a month',ws:'2 a month',oh:'8 a month',ag:'50%'},
+    {q:'Q1 2028',ph:'All live',line:'All 21,000 licenses are live and the program runs support-led across both tracks.',
+     act:'1,350 a month',ws:'2 a month',oh:'8 a month',ag:'50%'}
+  ];
+  var OPTADD={
+    1:'',
+    2:'<b>Option 2 adds</b> onshore trainer in US business hours \u00b7 train-the-trainer framework \u00b7 automated adoption reports \u00b7 faster response and issue resolution',
+    3:'<b>Option 3 adds</b> dedicated adoption team \u00b7 in-person train-the-trainer \u00b7 targeted outreach to inactive and low-active users'
+  };
+  /* Option 3 is the only option that changes the session allowance (source: comparison table) */
+  var OPTUP={3:{ws:'+ up to 2 more',oh:'+ up to 12 more a month'}};
+  function numOf(t){var m=String(t).match(/[\d,]+/); return m?parseFloat(m[0].replace(/,/g,'')):null}
+  function chip(lab,val,prev,up){
+    var cls='qc', mark='';
+    if(prev!==undefined && prev!==null && prev!==val){
+      var a=numOf(prev), b=numOf(val);
+      cls+=' chg'; mark='<i class="qc-d">'+((a!==null&&b!==null&&b<a)?'\u25be':'\u25b4')+'</i>';
+    }
+    if(up) cls+=' upl';
+    return '<div class="'+cls+'"><span class="qc-l">'+lab+'</span><b class="qc-v">'+val+
+      (up?'<em>'+up+'</em>':'')+'</b>'+mark+'</div>';
+  }
+  var lastNarrQ=-2, selectedOption=2;
+  function setNarr(qi){
+    if(!qpanel) return;
+    if(qi===lastNarrQ && qpanel.getAttribute('data-o')===String(selectedOption)) return;
+    lastNarrQ=qi; qpanel.setAttribute('data-o',selectedOption);
+    if(qi<0){
+      qpanel.innerHTML='<div class="qp-head"><span class="qp-q">Keep scrolling</span></div>'+
+        '<p class="qp-line">Follow the rollout quarter by quarter \u2014 the plan below shows what changes at each stage, and how the selected option changes it.</p>';
+      return;
+    }
+    var d=QMAP[qi], p=qi>0?QMAP[qi-1]:null, u=OPTUP[selectedOption]||{};
+    qpanel.innerHTML=
+      '<div class="qp-head"><span class="qp-q">'+d.q+'</span><span class="qp-ph">'+d.ph+'</span>'+
+        '<span class="qp-k">What changes this quarter</span></div>'+
+      '<p class="qp-line">'+d.line+'</p>'+
+      '<div class="qp-chips">'+
+        chip('Activation',d.act,p&&p.act)+
+        chip('Track B workshops',d.ws,p&&p.ws,u.ws)+
+        chip('Track B office hours',d.oh,p&&p.oh,u.oh)+
+        chip('How-To Agent target',d.ag,p&&p.ag)+
+      '</div>';
+    syncStory();
+  }
   function updateOptionCards(){
     document.querySelectorAll('.ocard[data-opt],.oms-b[data-opt]').forEach(function(b){
       var on=+b.dataset.opt===selectedOption;
@@ -3152,8 +3430,13 @@ body[data-opt="2"] #laneO2,body[data-opt="3"] #laneO2,body[data-opt="3"] #laneO3
   function updateOptionNarrative(){
     var m=document.getElementById('optNarrModel'), su=document.getElementById('optNarrSummary');
     var ad=document.getElementById('optAdoptModel');
-    if(ad) ad.textContent=OPTS[selectedOption].adopt;
+    if(ad) ad.innerHTML='<b>'+OPTS[selectedOption].adopt+'</b> estimated adoption';
     if(m) m.textContent=OPTS[selectedOption].model;
+    var add=document.getElementById('optAddsModel');
+    if(add) add.innerHTML=(OPTADD[selectedOption]||'')+
+      (selectedOption===3?'<span class="oms-loop"><b>Proactive adoption loop</b>'+
+        ['Activated users','Usage monitoring','Identify inactive and low-active users','Re-engage and retrain','Improved adoption']
+          .join(' \u2192 ')+'</span>':'');
     if(su) su.innerHTML=OPTS[selectedOption].summary;
   }
   function updateOperatingModelLayers(){
@@ -3162,8 +3445,9 @@ body[data-opt="2"] #laneO2,body[data-opt="3"] #laneO2,body[data-opt="3"] #laneO3
   function setSelectedOption(n,focus){
     n=Math.min(3,Math.max(1,+n||1));
     selectedOption=n;
-    updateOptionCards(); updateOptionNarrative(); updateOperatingModelLayers();
+    updateOptionCards(); updateOptionNarrative(); updateOperatingModelLayers(); setNarr(lastNarrQ<0?-1:lastNarrQ);
     if(focus){var t=focus.parentNode.querySelector('[data-opt="'+n+'"]'); if(t) t.focus()}
+    if(typeof layout==='function') layout();
   }
   document.querySelectorAll('.ocard[data-opt],.oms-b[data-opt],.osel[data-opt]').forEach(function(b){
     b.addEventListener('click',function(){setSelectedOption(b.dataset.opt)});
@@ -3179,11 +3463,15 @@ body[data-opt="2"] #laneO2,body[data-opt="3"] #laneO2,body[data-opt="3"] #laneO3
   });
   setSelectedOption(2);
 
-  progUpdate();
+  addEventListener('resize',layout);
+  if(document.fonts&&document.fonts.ready) document.fonts.ready.then(layout);
+  layout();
 })();
 </script>
 <script>
+/* ===== 05 Operating model: rollout player engine (ported) ===== */
 (function(){
+if(!document.getElementById('player')||!document.getElementById('world')) return;
 const $=s=>document.querySelector(s);
 const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
 const NS='http://www.w3.org/2000/svg';
@@ -3407,10 +3695,10 @@ function play(){
   if(!isFs()){const r=player.getBoundingClientRect();if(r.top<0||r.bottom>innerHeight)player.scrollIntoView({behavior:RM?'auto':'smooth',block:'start'});}
   $('#poster').hidden=true;$('#endcard').hidden=true;
   playing=true;last=performance.now();
-  document.getAnimations().forEach(a=>{if(a.playState==='paused')a.play();});
+  player.getAnimations({subtree:true}).forEach(a=>{if(a.playState==='paused')a.play();});
   ui();requestAnimationFrame(tick);
 }
-function pause(){playing=false;document.getAnimations().forEach(a=>{if(a.playState==='running'&&!a.effect?.target?.closest?.('.bigplay'))a.pause();});ui();}
+function pause(){playing=false;player.getAnimations({subtree:true}).forEach(a=>{if(a.playState==='running'&&!a.effect?.target?.closest?.('.bigplay'))a.pause();});ui();}
 /* ---------- full screen ---------- */
 const fsb=$('#fsbtn');
 const IC_IN='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
@@ -3438,7 +3726,133 @@ $('#replay').addEventListener('click',()=>{enterFs();run(0);play();});
 $('#chaps').addEventListener('click',e=>{const c=e.target.closest('.chap');if(!c)return;run(+c.dataset.t);play();});
 document.addEventListener('keydown',e=>{if(e.key===' '&&e.target===document.body){e.preventDefault();$('#pbtn').click();}});
 
-run(1200); // poster frame
+
+run(1200); /* poster frame */
+})();
+</script>
+
+<script>
+/* ===== side rail: quick table of contents ===== */
+(function(){
+  var rail=document.getElementById('railNav');
+  if(!rail) return;
+  var items=[
+    ['top','Overview'],
+    ['today','Today'],
+    ['challenge','Challenge'],
+    ['summary','Executive summary'],
+    ['model','Expansion plan'],
+    ['rollout','Operating model'],
+    ['tracks','Enablement tracks'],
+    ['self-service','Self-service'],
+    ['reporting','Reporting'],
+    ['ttt','Train-the-trainer'],
+    ['options','Service options']
+  ];
+  rail.innerHTML=items.map(function(it){
+    return '<a href="#'+it[0]+'" data-rail="'+it[0]+'" aria-label="'+it[1]+'"><span class="rail-tip">'+it[1]+'</span></a>';
+  }).join('');
+  var links=[].slice.call(rail.children);
+  var targets=items.map(function(it){
+    var el = it[0]==='top' ? (document.querySelector('.cover')||document.getElementById('top')) : document.getElementById(it[0]);
+    return {id:it[0], el:el};
+  }).filter(function(t){return t.el;});
+  var hdr=document.getElementById('hdr');
+  function setActive(id){
+    links.forEach(function(a){a.setAttribute('aria-current', a.getAttribute('data-rail')===id?'true':'false');});
+  }
+  function track(){
+    var line=(hdr?hdr.offsetHeight:64)+innerHeight*0.3, found=targets.length?targets[0].id:'top';
+    targets.forEach(function(t){ if(t.el.getBoundingClientRect().top<=line) found=t.id; });
+    setActive(found);
+  }
+  addEventListener('scroll',function(){requestAnimationFrame(track);},{passive:true});
+  addEventListener('resize',track);
+  if(document.fonts&&document.fonts.ready) document.fonts.ready.then(track);
+  track();
+})();
+
+/* ===== deck mode: fit each section to one screen, then snap between them ===== */
+(function(){
+  var MIN_ZOOM=0.78;                     /* one scale for the whole deck; below this a section leaves the deck instead */
+  /* left in normal flow on purpose: the player has its own fullscreen mode and would be
+     unreadable shrunk to a slide; service options is ~2.3 screens of pricing detail. */
+  var NO_FIT={options:1};
+  var mq=matchMedia('(min-width:1000px) and (min-height:620px)');
+  var hdr=document.getElementById('hdr');
+  var secs=[].slice.call(document.querySelectorAll('main > section.cover, main > section.ch, main > section.omp-sec'))
+             .filter(function(s){return !s.classList.contains('print-only');});
+  var raf=0;
+
+  function reset(s){ s.style.zoom=''; s.classList.remove('no-snap'); }
+
+  function fit(){
+    var on=mq.matches;
+    document.documentElement.classList.toggle('deck',on);
+    if(!on){ secs.forEach(reset); document.documentElement.style.setProperty('--deck-scale','1'); return; }
+    /* the slide box is what's left below the snap offset, so fitting matches where snapping rests */
+    var pad=parseFloat(getComputedStyle(document.documentElement).scrollPaddingTop);
+    if(!(pad>0)) pad=hdr.offsetHeight+9;
+    var avail=innerHeight-pad;
+
+    /* measure every slide at its natural size */
+    var list=[];
+    secs.forEach(function(s){
+      reset(s);
+      var id=s.id||'';
+      if(NO_FIT[id]){ s.classList.add('no-snap'); return; }
+      if(s.classList.contains('cover')) return;               /* title slide keeps its own scale */
+      s.style.minHeight='0';
+      var nat=s.offsetHeight;
+      s.style.minHeight='';
+      list.push({s:s, nat:nat});
+    });
+
+    /* ONE scale for the whole deck, so every section reads at the same size.
+       If a single section would drag that scale below the floor, it leaves the
+       deck and scrolls normally rather than shrinking everything else with it. */
+    function needed(){
+      var z=1;
+      list.forEach(function(o){ if(o.nat>avail) z=Math.min(z, avail/o.nat); });
+      return z;
+    }
+    var z=needed();
+    while(z<MIN_ZOOM && list.length>1){
+      var worst=list.reduce(function(a,b){ return a.nat>b.nat ? a : b; });
+      worst.s.classList.add('no-snap');
+      list=list.filter(function(o){ return o!==worst; });
+      z=needed();
+    }
+    z=Math.min(1,Math.max(MIN_ZOOM,z));
+    /* the width compensation in CSS reads this */
+    document.documentElement.style.setProperty('--deck-scale',z.toFixed(4));
+    list.forEach(function(o){
+      if(z<1){
+        o.s.style.zoom=z.toFixed(4);
+        /* counter the scale so the slide still fills exactly one screen */
+        o.s.style.minHeight=(avail/z).toFixed(1)+'px';
+      }
+    });
+  }
+  function schedule(){ cancelAnimationFrame(raf); raf=requestAnimationFrame(fit); }
+
+  addEventListener('resize',schedule);
+  if(mq.addEventListener) mq.addEventListener('change',schedule);
+  if(document.fonts&&document.fonts.ready) document.fonts.ready.then(schedule);
+  addEventListener('load',schedule);
+  schedule();
+})();
+
+/* ===== nav "More" dropdown ===== */
+(function(){
+  var dd=document.getElementById('moreDd'), btn=document.getElementById('moreBtn');
+  if(!dd||!btn) return;
+  function open(){dd.classList.add('open'); btn.setAttribute('aria-expanded','true');}
+  function close(){dd.classList.remove('open'); btn.setAttribute('aria-expanded','false');}
+  btn.addEventListener('click',function(e){e.stopPropagation(); dd.classList.contains('open')?close():open();});
+  dd.querySelectorAll('#moreMenu a').forEach(function(a){a.addEventListener('click',close);});
+  document.addEventListener('click',function(e){if(!dd.contains(e.target)) close();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape') close();});
 })();
 </script>
 </body>
